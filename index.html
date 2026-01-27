@@ -48,7 +48,7 @@
             transition: all 0.3s ease;
         }
         
-        /* Text Links styling */
+        /* Standard Paragraph Links */
         p a { 
             border-bottom: 1px dotted var(--accent-navy); 
         }
@@ -57,9 +57,9 @@
             border-bottom: 1px solid var(--accent-gold); 
         }
 
-        /* --- SECTION BANNERS (CHICAGO THEME) --- */
+        /* --- SECTION BANNERS (LOCAL IMAGES) --- */
         .section-banner {
-            height: 280px; /* Compact but impactful */
+            height: 280px; 
             background-attachment: fixed; /* Parallax */
             background-position: center;
             background-size: cover;
@@ -91,27 +91,11 @@
             backdrop-filter: blur(4px);
         }
 
-        /* CHICAGO IMAGES (Updated to ensure visibility) */
-        
-        /* Journey: Cloud Gate (The Bean) */
-        .bg-journey { 
-            background-image: url('https://images.unsplash.com/photo-1494522855154-9297ac14b55f?auto=format&fit=crop&q=80'); 
-        }
-        
-        /* Experience: Chicago L Train */
-        .bg-experience { 
-            background-image: url('https://images.unsplash.com/photo-1596727282245-2b0222043d94?auto=format&fit=crop&q=80'); 
-        }
-        
-        /* Research: Classic Architecture (University Club/downtown feel) */
-        .bg-research { 
-            background-image: url('https://images.unsplash.com/photo-1495562569060-2eec28387ef0?auto=format&fit=crop&q=80'); 
-        }
-        
-        /* Affiliations: Chicago Bridges/River */
-        .bg-affiliations { 
-            background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80'); 
-        }
+        /* BACKGROUND IMAGES (Pointing to local 'images' folder) */
+        .bg-journey { background-image: url('images/journey.jpg'); }
+        .bg-experience { background-image: url('images/experience.jpg'); }
+        .bg-research { background-image: url('images/research.jpg'); }
+        .bg-affiliations { background-image: url('images/affiliations.jpg'); }
 
         /* --- NAVIGATION --- */
         .top-nav {
@@ -271,7 +255,7 @@
             color: var(--accent-navy);
             margin: 0 0 10px 0;
             display: inline-block;
-            border-bottom: 2px solid var(--accent-gold); /* Strong visual cue */
+            border-bottom: 2px solid var(--accent-gold);
             padding-bottom: 2px;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -284,14 +268,14 @@
         /* --- WORK EXPERIENCE (COMPACT LINEAR SERIES) --- */
         .timeline-container {
             position: relative;
-            padding-left: 30px; /* Space for the line */
+            padding-left: 30px;
         }
 
         /* The Continuous Line */
         .timeline-container::before {
             content: '';
             position: absolute;
-            left: 6px; /* Align with dots */
+            left: 6px;
             top: 10px;
             bottom: 20px;
             width: 2px;
@@ -300,15 +284,15 @@
 
         .timeline-series-item {
             position: relative;
-            margin-bottom: 15px; /* TIGHT spacing for compactness */
+            margin-bottom: 15px; /* Compact spacing */
         }
 
         /* The Timeline Dot */
         .timeline-series-item::after {
             content: '';
             position: absolute;
-            left: -28px; /* Position on the line */
-            top: 20px; /* Align with summary */
+            left: -28px;
+            top: 20px;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -444,7 +428,7 @@
     </nav>
 
     <section id="home" class="hero-section">
-        <img src="profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
+        <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
         <h1 class="hero-name">Mamoor Ali Khan</h1>
         <div class="hero-title">Research Operations Specialist</div>
         
