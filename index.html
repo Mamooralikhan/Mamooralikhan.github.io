@@ -52,7 +52,7 @@
             min-height: 100vh;
         }
 
-        /* --- LEFT SIDEBAR (PINNED INFO) --- */
+        /* --- LEFT SIDEBAR (PINNED IDENTITY) --- */
         .sidebar {
             width: var(--sidebar-width);
             height: 100vh;
@@ -135,16 +135,16 @@
             padding: 0;
         }
 
-        /* --- TOP NAVIGATION BAR (THE BUTTONS) --- */
+        /* --- TOP NAVIGATION BAR --- */
         .top-nav {
             position: sticky;
             top: 0;
-            background-color: rgba(17, 17, 17, 0.95); /* Semi-transparent dark */
+            background-color: rgba(17, 17, 17, 0.95);
             padding: 20px 40px;
             border-bottom: 1px solid #222;
             z-index: 500;
             display: flex;
-            justify-content: center; /* Center the buttons */
+            justify-content: center;
             backdrop-filter: blur(5px);
         }
 
@@ -153,14 +153,15 @@
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 40px;
+            gap: 30px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .top-nav a {
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
             color: var(--text-muted);
             font-weight: 500;
             padding-bottom: 5px;
@@ -238,9 +239,51 @@
             line-height: 1.6;
         }
 
+        /* --- AFFILIATIONS STYLING --- */
+        .affiliation-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .affiliation-item {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border-left: 2px solid #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .affiliation-item:hover {
+            border-left: 2px solid var(--gold-accent);
+        }
+
+        .inst-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .inst-role {
+            font-size: 1rem;
+            color: var(--gold-accent);
+            font-weight: 500;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .inst-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
         /* --- PLACEHOLDERS --- */
         .content-section {
-            min-height: 60vh;
+            min-height: 50vh;
             border-top: 1px solid #222;
         }
         .coming-soon {
@@ -271,11 +314,8 @@
                 border-bottom: 1px solid var(--gold-accent);
             }
             .main-content { margin-left: 0; width: 100%; }
-            .top-nav {
-                position: relative; /* Scrolls with page on mobile */
-                justify-content: center;
-            }
-            .top-nav ul { gap: 20px; justify-content: center; }
+            .top-nav { position: relative; justify-content: center; }
+            .top-nav ul { gap: 15px; justify-content: center; }
             .section-container { padding: 40px 20px; }
         }
     </style>
@@ -318,8 +358,8 @@
                 <ul>
                     <li><a href="#story">My Journey</a></li>
                     <li><a href="#experience">Work Experience</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#education">Education</a></li>
+                    <li><a href="#research">Contributions in Research</a></li>
+                    <li><a href="#affiliations">Research Affiliations</a></li>
                 </ul>
             </nav>
 
@@ -331,7 +371,7 @@
                         It began in 2013. Fresh out of Computer Science, I found myself not in a tech startup, but as an intern in a pharmaceutical firm. It was there, amidst the rows of numbers and spreadsheets, that I discovered my true language: <strong>Data</strong>. 
                     </p>
                     <p>
-                        I realized I had a specific talent—I could listen to what the data was saying and shape it to tell the truth of the business. This skill propelled me to Assistant Product Manager, where I crafted marketing strategies for OTC products. But I wanted more impact. I made a pivotal decision to pursue a Master’s in Development Studies, a decision that finally married my technical programming roots with the human-centric world of development practice.
+                        I realized I had a specific talent; I could listen to what the data was saying and shape it to tell the truth of the business. This skill propelled me to Assistant Product Manager, where I crafted marketing strategies for OTC products. But I wanted more impact. I made a pivotal decision to pursue a Master’s in Development Studies, a decision that finally married my technical programming roots with the human-centric world of development practice.
                     </p>
                     <p>
                         This path led me to impactful work with USAID and UNHCR projects, but the true turning point was the mentorship I received. I met <a href="https://lukesonnet.com/" target="_blank">Dr. Luke Sonnet</a>, under whose wing I delved into the realm of progressive data wrangling. Though I will always consider myself a student of the craft, I have built a proven track record of wrangling data into any shape, creating complex tables, and designing intricate plots. I like to think of myself as a "Data Wizard" :-)
@@ -374,9 +414,30 @@
                 <div class="coming-soon">Content coming soon...</div>
             </section>
 
-            <section id="education" class="section-container content-section">
-                <h2 class="section-title">Education & Skills</h2>
-                <div class="coming-soon">Content coming soon...</div>
+            <section id="affiliations" class="section-container content-section">
+                <h2 class="section-title">Research Affiliations</h2>
+                
+                <div class="affiliation-list">
+                    
+                    <div class="affiliation-item">
+                        <div class="inst-name">Stanford University</div>
+                        <div class="inst-role">Research Supplier (Research Assistant)</div>
+                        <div class="inst-date">Sept 2018 to Aug 2019</div>
+                    </div>
+
+                    <div class="affiliation-item">
+                        <div class="inst-name">Center for Economics Research in Pakistan (CERP)</div>
+                        <div class="inst-role">Senior Research Associate</div>
+                        <div class="inst-date">Oct 2019 to Dec 2022</div>
+                    </div>
+
+                    <div class="affiliation-item">
+                        <div class="inst-name">Consortium for Development Policy Research (CDPR)</div>
+                        <div class="inst-role">Data and Research Analyst</div>
+                        <div class="inst-date">Islamabad</div>
+                    </div>
+
+                </div>
             </section>
 
             <footer>
