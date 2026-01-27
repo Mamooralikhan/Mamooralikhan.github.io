@@ -52,7 +52,7 @@
             min-height: 100vh;
         }
 
-        /* --- LEFT SIDEBAR (PINNED) --- */
+        /* --- LEFT SIDEBAR (PINNED INFO) --- */
         .sidebar {
             width: var(--sidebar-width);
             height: 100vh;
@@ -68,14 +68,12 @@
             justify-content: center;
             text-align: center;
             z-index: 100;
-            overflow-y: auto; 
             background: radial-gradient(circle at top left, #1a1a1a 0%, #050505 70%);
         }
 
-        /* Sidebar Elements */
         .profile-pic {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--gold-accent);
@@ -93,16 +91,16 @@
             font-size: 1rem;
             color: var(--gold-accent);
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .contact-info {
             font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .contact-item {
@@ -114,46 +112,14 @@
         .contact-item i { color: var(--gold-accent); }
         .contact-item:hover { color: #fff; }
 
-        /* Sidebar Navigation Menu */
-        .sidebar-nav {
-            margin: 20px 0 40px 0;
-            width: 100%;
-            border-top: 1px solid #222;
-            border-bottom: 1px solid #222;
-            padding: 20px 0;
-        }
-
-        .sidebar-nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .sidebar-nav a {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            display: block;
-        }
-
-        .sidebar-nav a:hover {
-            color: var(--gold-accent);
-            transform: translateX(5px);
-        }
-
-        /* Social Icons */
         .social-row {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
         }
 
         .social-icon {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--text-muted);
         }
         
@@ -162,22 +128,55 @@
             transform: translateY(-3px);
         }
 
-        /* --- MAIN CONTENT (SCROLLABLE) --- */
+        /* --- MAIN CONTENT AREA --- */
         .main-content {
             margin-left: var(--sidebar-width);
             width: calc(100% - var(--sidebar-width));
             padding: 0;
         }
 
+        /* --- TOP NAVIGATION BAR (THE BUTTONS) --- */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(17, 17, 17, 0.95); /* Semi-transparent dark */
+            padding: 20px 40px;
+            border-bottom: 1px solid #222;
+            z-index: 500;
+            display: flex;
+            justify-content: center; /* Center the buttons */
+            backdrop-filter: blur(5px);
+        }
+
+        .top-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .top-nav a {
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .top-nav a:hover {
+            color: var(--gold-accent);
+            border-bottom: 2px solid var(--gold-accent);
+        }
+
+        /* --- SECTIONS --- */
         .section-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 80px 40px;
-        }
-
-        /* --- STORY SECTION --- */
-        #story {
-            padding-top: 100px; 
         }
 
         .section-title {
@@ -188,30 +187,25 @@
             padding-left: 20px;
         }
 
+        /* --- STORY STYLING --- */
         .story-text {
             font-size: 1.15rem;
             line-height: 1.9;
             color: #e0e0e0;
             text-align: justify;
         }
-
         .story-text p { margin-bottom: 25px; }
-
         .story-text a {
             color: var(--gold-accent);
             border-bottom: 1px dotted var(--gold-accent);
         }
-        
         .story-text a:hover {
             color: #fff;
             border-bottom: 1px solid #fff;
         }
 
         /* Mentors Block */
-        .mentors-block {
-            margin-top: 60px;
-        }
-
+        .mentors-block { margin-top: 60px; }
         .mentors-title {
             font-size: 2rem;
             color: var(--gold-accent);
@@ -219,7 +213,6 @@
             margin-bottom: 30px;
             text-align: center;
         }
-
         .mentor-card {
             background: rgba(255, 255, 255, 0.03);
             border-left: 3px solid var(--gold-accent);
@@ -228,29 +221,16 @@
             border-radius: 0 8px 8px 0;
             transition: transform 0.3s ease;
         }
-
         .mentor-card:hover {
             background: rgba(255, 255, 255, 0.05);
             transform: translateX(5px);
         }
-
         .mentor-card h4 {
             font-size: 1.4rem;
             color: var(--gold-accent);
             margin: 0 0 10px 0;
         }
-        
-        /* Mentor Links */
-        .mentor-card h4 a {
-            color: var(--gold-accent);
-            border-bottom: none;
-        }
-        
-        .mentor-card h4 a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
+        .mentor-card h4 a { border-bottom: none; }
         .mentor-card p {
             font-style: italic;
             color: #ccc;
@@ -258,15 +238,11 @@
             line-height: 1.6;
         }
 
-        /* --- PLACEHOLDER SECTIONS --- */
+        /* --- PLACEHOLDERS --- */
         .content-section {
             min-height: 60vh;
             border-top: 1px solid #222;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
-
         .coming-soon {
             font-family: 'Playfair Display', serif;
             font-style: italic;
@@ -284,7 +260,7 @@
             border-top: 1px solid #1a1a1a;
         }
 
-        /* --- RESPONSIVE MOBILE --- */
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 900px) {
             .page-container { flex-direction: column; }
             .sidebar {
@@ -295,13 +271,12 @@
                 border-bottom: 1px solid var(--gold-accent);
             }
             .main-content { margin-left: 0; width: 100%; }
-            .section-container { padding: 40px 20px; }
-            .sidebar-nav ul {
-                flex-direction: row;
-                flex-wrap: wrap;
+            .top-nav {
+                position: relative; /* Scrolls with page on mobile */
                 justify-content: center;
-                gap: 20px;
             }
+            .top-nav ul { gap: 20px; justify-content: center; }
+            .section-container { padding: 40px 20px; }
         }
     </style>
 </head>
@@ -311,7 +286,7 @@
         
         <aside class="sidebar">
             <img src="profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
-
+            
             <h1>Mamoor Ali Khan</h1>
             <div class="subtitle">Research Manager & Data Analyst</div>
 
@@ -323,15 +298,6 @@
                     <i class="fas fa-envelope"></i> skhan24@nd.edu
                 </a>
             </div>
-
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="#story">My Journey</a></li>
-                    <li><a href="#experience">Work Experience</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#education">Education</a></li>
-                </ul>
-            </nav>
 
             <div class="social-row">
                 <a href="https://www.dropbox.com/scl/fi/eomamml30qifisjtle7t8/resume_mamooralikhan.pdf?rlkey=h5bfp0ajxb5no1432zzivfng6&dl=0" target="_blank" title="Download CV">
@@ -348,6 +314,15 @@
 
         <main class="main-content">
             
+            <nav class="top-nav">
+                <ul>
+                    <li><a href="#story">My Journey</a></li>
+                    <li><a href="#experience">Work Experience</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+            </nav>
+
             <section id="story" class="section-container">
                 <h2 class="section-title">My Journey</h2>
                 
@@ -356,7 +331,7 @@
                         It began in 2013. Fresh out of Computer Science, I found myself not in a tech startup, but as an intern in a pharmaceutical firm. It was there, amidst the rows of numbers and spreadsheets, that I discovered my true language: <strong>Data</strong>. 
                     </p>
                     <p>
-                        I realized I had a specific talent, I could listen to what the data was saying and shape it to tell the truth of the business. This skill propelled me to Assistant Product Manager, where I crafted marketing strategies for OTC products. But I wanted more impact. I made a pivotal decision to pursue a Master’s in Development Studies, a decision that finally married my technical programming roots with the human-centric world of development practice.
+                        I realized I had a specific talent—I could listen to what the data was saying and shape it to tell the truth of the business. This skill propelled me to Assistant Product Manager, where I crafted marketing strategies for OTC products. But I wanted more impact. I made a pivotal decision to pursue a Master’s in Development Studies, a decision that finally married my technical programming roots with the human-centric world of development practice.
                     </p>
                     <p>
                         This path led me to impactful work with USAID and UNHCR projects, but the true turning point was the mentorship I received. I met <a href="https://lukesonnet.com/" target="_blank">Dr. Luke Sonnet</a>, under whose wing I delved into the realm of progressive data wrangling. Though I will always consider myself a student of the craft, I have built a proven track record of wrangling data into any shape, creating complex tables, and designing intricate plots. I like to think of myself as a "Data Wizard" :-)
