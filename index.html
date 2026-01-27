@@ -57,10 +57,10 @@
             border-bottom: 1px solid var(--accent-gold); 
         }
 
-        /* --- SECTION BANNERS (LOCAL IMAGES) --- */
+        /* --- SECTION BANNERS (CHICAGO THEME) --- */
         .section-banner {
             height: 280px; 
-            background-attachment: fixed; /* Parallax */
+            background-attachment: fixed; /* Parallax for Desktop */
             background-position: center;
             background-size: cover;
             position: relative;
@@ -268,14 +268,14 @@
         /* --- WORK EXPERIENCE (COMPACT LINEAR SERIES) --- */
         .timeline-container {
             position: relative;
-            padding-left: 30px;
+            padding-left: 30px; /* Space for the line */
         }
 
         /* The Continuous Line */
         .timeline-container::before {
             content: '';
             position: absolute;
-            left: 6px;
+            left: 6px; /* Align with dots */
             top: 10px;
             bottom: 20px;
             width: 2px;
@@ -291,8 +291,8 @@
         .timeline-series-item::after {
             content: '';
             position: absolute;
-            left: -28px;
-            top: 20px;
+            left: -28px; /* Position on the line */
+            top: 20px; /* Align with summary */
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -400,8 +400,15 @@
             border-top: 1px solid var(--border-line);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Responsive & Mobile Fixes */
+        @media (max-width: 1024px) {
+            /* FIX FOR MOBILE PARALLAX ISSUES */
+            .section-banner {
+                background-attachment: scroll; /* Disables fixed attachment on mobile */
+                background-position: center;
+                height: 200px; /* Slightly smaller banners on phone */
+            }
+
             .journey-text { column-count: 1; }
             .mentors-grid { grid-template-columns: 1fr; }
             .nav-links { gap: 20px; font-size: 0.8rem; }
