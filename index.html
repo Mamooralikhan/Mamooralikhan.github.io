@@ -239,6 +239,126 @@
             line-height: 1.6;
         }
 
+        /* --- TIMELINE (WORK EXPERIENCE) --- */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Vertical Line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px; /* Adjust based on dot position */
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(197, 160, 89, 0.3); /* Faded Gold */
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 60px; /* Space for the line and dot */
+        }
+
+        /* The Dot */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 13px; /* Centers dot on line (20px line - 7px half width) */
+            top: 25px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--bg-content);
+            border: 2px solid var(--gold-accent);
+            z-index: 1;
+        }
+
+        /* Interactive Details Box */
+        details {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #222;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            border-color: var(--gold-accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        summary {
+            list-style: none; /* Hides default triangle */
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            outline: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .job-header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .job-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .job-company {
+            color: var(--gold-accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .arrow-icon {
+            color: var(--gold-accent);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        .job-summary {
+            padding: 0 25px 25px 25px;
+            color: #ddd;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 10px;
+            padding-top: 20px;
+        }
+
+        .job-summary ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .job-summary li {
+            margin-bottom: 10px;
+        }
+
         /* --- AFFILIATIONS STYLING --- */
         .affiliation-list {
             display: flex;
@@ -279,19 +399,6 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             font-style: italic;
-        }
-
-        /* --- PLACEHOLDERS --- */
-        .content-section {
-            min-height: 50vh;
-            border-top: 1px solid #222;
-        }
-        .coming-soon {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            margin-top: 20px;
         }
 
         /* --- FOOTER --- */
@@ -404,12 +511,137 @@
                 </div>
             </section>
 
-            <section id="experience" class="section-container content-section">
+            <section id="experience" class="section-container">
                 <h2 class="section-title">Work Experience</h2>
-                <div class="coming-soon">Content coming soon...</div>
+                
+                <div class="timeline">
+                    
+                    <div class="timeline-item">
+                        <details>
+                            <summary>
+                                <div class="job-header">
+                                    <span class="job-title">Research Manager</span>
+                                    <span class="job-company">Kellogg Institute, University of Notre Dame</span>
+                                    <span class="job-date">Oct 2025 - Present</span>
+                                </div>
+                                <i class="fas fa-chevron-down arrow-icon"></i>
+                            </summary>
+                            <div class="job-summary">
+                                <ul>
+                                    <li>Lead and manage international research teams across Colombia, Italy, the United Kingdom, and the United States.</li>
+                                    <li>Oversee data collection, management, and quantitative analysis for multiple ongoing research projects.</li>
+                                    <li>Supervise coding and analytical workflows to ensure methodological rigor and consistency.</li>
+                                    <li>Manage research budgets and oversee allocation and reporting of project funds.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="timeline-item">
+                        <details>
+                            <summary>
+                                <div class="job-header">
+                                    <span class="job-title">Senior Associate</span>
+                                    <span class="job-company">Princeton University</span>
+                                    <span class="job-date">May 2023 - Sept 2025</span>
+                                </div>
+                                <i class="fas fa-chevron-down arrow-icon"></i>
+                            </summary>
+                            <div class="job-summary">
+                                <ul>
+                                    <li>Worked with principal investigators on advanced data analysis for project reports and academic papers.</li>
+                                    <li>Piloted survey instruments to ensure tools adequately collected required information.</li>
+                                    <li>Trained field staff on research protocols and monitored survey teams to ensure adherence to procedures.</li>
+                                    <li>Maintained inter-agency coordination, especially with partner government departments.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="timeline-item">
+                        <details>
+                            <summary>
+                                <div class="job-header">
+                                    <span class="job-title">Lead Research Manager</span>
+                                    <span class="job-company">Yale University</span>
+                                    <span class="job-date">Jun 2022 - Apr 2023</span>
+                                </div>
+                                <i class="fas fa-chevron-down arrow-icon"></i>
+                            </summary>
+                            <div class="job-summary">
+                                <ul>
+                                    <li>Managed the research program for six countries including Argentina, Bangladesh, India, Kenya, Lebanon, and Pakistan.</li>
+                                    <li>Supervised all social experiments and founded a coordination cell for communication strategy.</li>
+                                    <li>Developed a research database to store and organize data from the project.</li>
+                                    <li>Conducted comprehensive analysis of experiments and presented findings in detailed reports.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="timeline-item">
+                        <details>
+                            <summary>
+                                <div class="job-header">
+                                    <span class="job-title">Project Manager</span>
+                                    <span class="job-company">European University Institute</span>
+                                    <span class="job-date">Oct 2018 - May 2022</span>
+                                </div>
+                                <i class="fas fa-chevron-down arrow-icon"></i>
+                            </summary>
+                            <div class="job-summary">
+                                <ul>
+                                    <li>Established the coordination strategy for effective communication with provincial incumbents in the assembly.</li>
+                                    <li>Gathered, arranged, and validated research data to create representative graphs and charts.</li>
+                                    <li>Helped the team meet regulatory requirements by coordinating documentation and filings.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="timeline-item">
+                        <details>
+                            <summary>
+                                <div class="job-header">
+                                    <span class="job-title">Assistant Product Manager</span>
+                                    <span class="job-company">Libra Private Limited</span>
+                                    <span class="job-date">Apr 2016 - Oct 2018</span>
+                                </div>
+                                <i class="fas fa-chevron-down arrow-icon"></i>
+                            </summary>
+                            <div class="job-summary">
+                                <ul>
+                                    <li>Led category, brand, and competitive analyses to identify trends leading to key consumer conclusions.</li>
+                                    <li>Collaborated with vendors to verify service-level performance and influence supplier manufacturing processes.</li>
+                                    <li>Managed cross-functional teams to commercialize new products and drive improvements.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                     <div class="timeline-item">
+                        <details>
+                            <summary>
+                                <div class="job-header">
+                                    <span class="job-title">Product Pod Member / Intern</span>
+                                    <span class="job-company">Libra Private Limited</span>
+                                    <span class="job-date">Jan 2014 - Jun 2015</span>
+                                </div>
+                                <i class="fas fa-chevron-down arrow-icon"></i>
+                            </summary>
+                            <div class="job-summary">
+                                <ul>
+                                    <li>Worked in a product pod environment consisting of product developers, design teams, and software personnel.</li>
+                                    <li>Assisted in quality assurance testing and marketing strategy decisions.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+
+                </div>
             </section>
 
-            <section id="research" class="section-container content-section">
+            <section id="research" class="section-container content-section" style="border-top: 1px solid #222;">
                 <h2 class="section-title">Contributions in Research</h2>
                 <div class="coming-soon">Content coming soon...</div>
             </section>
@@ -420,6 +652,12 @@
                 <div class="affiliation-list">
                     
                     <div class="affiliation-item">
+                        <div class="inst-name">Consortium for Development Policy Research (CDPR)</div>
+                        <div class="inst-role">Data and Research Analyst</div>
+                        <div class="inst-date">Islamabad</div>
+                        </div>
+
+                    <div class="affiliation-item">
                         <div class="inst-name">Stanford University</div>
                         <div class="inst-role">Research Supplier (Research Assistant)</div>
                         <div class="inst-date">Sept 2018 to Aug 2019</div>
@@ -429,12 +667,6 @@
                         <div class="inst-name">Center for Economics Research in Pakistan (CERP)</div>
                         <div class="inst-role">Senior Research Associate</div>
                         <div class="inst-date">Oct 2019 to Dec 2022</div>
-                    </div>
-
-                    <div class="affiliation-item">
-                        <div class="inst-name">Consortium for Development Policy Research (CDPR)</div>
-                        <div class="inst-role">Data and Research Analyst</div>
-                        <div class="inst-date">Islamabad</div>
                     </div>
 
                 </div>
