@@ -264,10 +264,144 @@
 
     </section>
 
-    <section id="story" class="section-placeholder">
-        <h2>My Story</h2>
-        <div class="coming-soon-text">Content coming soon...</div>
+    <section id="story" class="story-section">
+        <div class="story-container">
+            <h2>My Journey</h2>
+            
+            <div class="story-content">
+                <p>
+                    It began in 2013. Fresh out of Computer Science, I found myself not in a tech startup, but as an intern in a pharmaceutical firm. It was there, amidst the rows of numbers and spreadsheets, that I discovered my true language: <strong>Data</strong>. 
+                </p>
+                <p>
+                    I realized I had a specific talent—I could listen to what the data was saying and shape it to tell the truth of the business. This skill propelled me to Assistant Product Manager, where I crafted marketing strategies for OTC products. But I wanted more impact. I made a pivotal decision to pursue a Master’s in Development Studies, a decision that finally married my technical programming roots with the human-centric world of development practice.
+                </p>
+                <p>
+                    This path led me to impactful work with USAID and UNHCR projects, but the true turning point was the mentorship I received. I met <a href="https://lukesonnet.com/" target="_blank">Dr. Luke Sonnet</a>, under whose wing I delved into the realm of progressive data wrangling. Though I will always consider myself a student of the craft, I have built a proven track record of wrangling data into any shape, creating complex tables, and designing intricate plots. I like to think of myself as a "Data Wizard" :-)
+                </p>
+
+                <hr class="story-divider">
+
+                <h3>Giants Upon Whose Shoulders I Stand</h3>
+                
+                <p>
+                    My story is incomplete without acknowledging the titans who shaped me. I write this with the highest level of distinction and gratitude.
+                </p>
+
+                <div class="mentor-tribute">
+                    <h4>Dr. Miriam Golden</h4>
+                    <p>
+                        She trusted a naive boy with her most precious projects. I still recall the sting of embarrassment in early meetings, acutely aware of my lack of international education. Yet, where others might have seen a liability, Dr. Golden never lost faith. She has been the unshakable pillar of my career and has fundamentally shaped my life. I offer her my deepest respect; I simply cannot thank her enough.
+                    </p>
+                </div>
+
+                <div class="mentor-tribute">
+                    <h4>Dr. Saad Gulzar</h4>
+                    <p>
+                        Dr. Gulzar is the guiding light that taught me to fly. He opened doors I did not know existed, giving me multiple opportunities within his research and introducing me to brilliant minds at Stanford, Yale, and Princeton. He didn't just give me a role; he gave me a horizon.
+                    </p>
+                </div>
+
+                <hr class="story-divider">
+
+                <p>
+                    With this foundation, I have managed multiple multi-national projects and now find myself in the United States, serving as a Research Manager at the <a href="https://kellogg.nd.edu/" target="_blank">Kellogg Institute at the University of Notre Dame</a>.
+                </p>
+                <p class="call-to-action">
+                    Please explore my Work Experience and Research Contributions to see the technical results of this journey.
+                </p>
+            </div>
+        </div>
     </section>
+
+    <style>
+        /* --- COPY THIS CSS INTO YOUR STYLE TAG OR LEAVE HERE --- */
+        .story-section {
+            padding: 80px 20px;
+            background-color: var(--bg-panel); /* Slightly lighter than main bg */
+            border-top: 1px solid #222;
+        }
+
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-section h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--gold-accent);
+        }
+
+        .story-section h3 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        .story-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .story-content p {
+            margin-bottom: 25px;
+        }
+
+        .story-content a {
+            color: var(--gold-accent);
+            border-bottom: 1px dotted var(--gold-accent);
+            font-weight: 500;
+        }
+
+        .story-content a:hover {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+
+        /* Divider Line */
+        .story-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, transparent, var(--gold-accent), transparent);
+            margin: 50px 0;
+        }
+
+        /* Mentor Tribute Blocks */
+        .mentor-tribute {
+            border-left: 3px solid var(--gold-accent);
+            padding-left: 25px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 20px 25px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .mentor-tribute h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold-accent);
+            margin-bottom: 10px;
+        }
+
+        .mentor-tribute p {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #ccc;
+        }
+
+        .call-to-action {
+            text-align: center;
+            font-weight: 500;
+            margin-top: 40px;
+            color: var(--text-muted);
+        }
+    </style>
 
     <section id="experience" class="section-placeholder">
         <h2>Work Experience</h2>
