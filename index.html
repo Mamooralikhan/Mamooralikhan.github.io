@@ -33,7 +33,7 @@
             font-family: 'Merriweather', serif; 
             line-height: 1.7; 
             scroll-behavior: smooth;
-            font-size: 14px; /* SMALL ACADEMIC BASE */
+            font-size: 14px; /* Small Academic Base */
         }
 
         h1, h2, h3, h4 {
@@ -80,10 +80,49 @@
         }
         .nav-links a:hover { color: var(--accent-gold); }
 
-        /* --- SECTION BANNERS (PARALLAX) --- */
+        /* --- NEW: CENTERED HEADER PROFILE --- */
+        .profile-header {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-paper);
+        }
+
+        .profile-pic {
+            width: 160px; height: 160px; border-radius: 50%; object-fit: cover;
+            border: 4px solid #fff; box-shadow: 0 0 0 1px var(--accent-gold); margin-bottom: 20px;
+        }
+
+        .hero-name {
+            font-size: 2.5rem; margin-bottom: 5px; color: var(--accent-navy); line-height: 1.1;
+        }
+
+        .hero-title {
+            font-family: 'Merriweather', serif; font-size: 0.9rem; color: var(--text-charcoal);
+            font-style: italic; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .contact-icons {
+            display: flex; justify-content: center; gap: 25px; margin-bottom: 25px;
+        }
+
+        .icon-link {
+            font-size: 1.4rem; color: var(--text-charcoal); transition: all 0.3s ease; border-bottom: none !important;
+        }
+        .icon-link:hover { color: var(--accent-gold); transform: translateY(-3px); }
+
+        .insta-note {
+            font-size: 0.8rem; color: #888; font-style: italic; 
+            border-top: 1px solid var(--border-line); padding-top: 15px; display: inline-block; width: 100%;
+        }
+        .insta-note a { color: #555; border-bottom: 1px dotted #ccc; }
+        .insta-note a:hover { color: #C13584; border-bottom: 1px solid #C13584; }
+
+        /* --- SECTION BANNERS --- */
         .section-banner {
             height: 280px; 
-            background-attachment: fixed; /* PARALLAX ON DESKTOP */
+            background-attachment: fixed; /* PARALLAX */
             background-position: center;
             background-size: cover;
             position: relative;
@@ -110,93 +149,65 @@
         .bg-research { background-image: url('images/research.jpg'); }
         .bg-affiliations { background-image: url('images/affiliations.jpg'); }
 
-        /* --- 3-COLUMN HERO SECTION --- */
-        .hero-3col-container {
+        /* --- SPLIT CONTENT (JOURNEY LEFT / MENTORS RIGHT) --- */
+        .content-split-container {
             display: grid;
-            grid-template-columns: 260px 1fr 260px; /* Bio | Journey | Mentors */
-            gap: 40px;
-            max-width: 1200px;
+            grid-template-columns: 1fr 350px; /* Journey gets more space, Mentors gets fixed width */
+            gap: 60px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 60px 30px;
             align-items: start;
-            background-color: var(--bg-paper); 
-            position: relative; 
+            background-color: var(--bg-paper);
+            position: relative;
             z-index: 10;
         }
 
-        /* COLUMN 1: BIO (Sticky) */
-        .col-left-bio {
-            text-align: center;
-            position: sticky;
-            top: 80px; 
-        }
-
-        .profile-pic {
-            width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
-            border: 3px solid #fff; box-shadow: 0 0 0 1px var(--accent-gold); margin-bottom: 15px;
-        }
-
-        .hero-name {
-            font-size: 1.8rem; margin-bottom: 5px; color: var(--accent-navy); line-height: 1.1;
-        }
-
-        .hero-title {
-            font-family: 'Merriweather', serif; font-size: 0.75rem; color: var(--text-charcoal);
-            font-style: italic; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
-        }
-
-        .contact-icons {
-            display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;
-        }
-
-        .icon-link {
-            font-size: 1.2rem; color: var(--text-charcoal); transition: all 0.3s ease; border-bottom: none !important;
-        }
-        .icon-link:hover { color: var(--accent-gold); transform: translateY(-3px); }
-
-        .insta-note {
-            font-size: 0.75rem; color: #888; font-style: italic; margin-top: 20px;
-            border-top: 1px solid var(--border-line); padding-top: 15px; line-height: 1.4;
-        }
-        .insta-note a { color: #555; border-bottom: 1px dotted #ccc; }
-        .insta-note a:hover { color: #C13584; border-bottom: 1px solid #C13584; }
-
-        /* COLUMN 2: JOURNEY TEXT */
-        .col-center-journey {
-            padding-top: 5px;
+        /* JOURNEY COL */
+        .journey-col {
             text-align: justify;
         }
-
         .journey-heading {
-            font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent-gold);
-            margin-bottom: 20px; border-bottom: 2px solid var(--border-line); padding-bottom: 8px; display: block; text-align: center;
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--accent-gold);
+            margin-bottom: 25px; border-bottom: 2px solid var(--border-line); padding-bottom: 10px; display: inline-block;
         }
-        
-        .col-center-journey p {
+        .journey-col p {
             font-size: 0.95rem; line-height: 1.8; color: var(--text-charcoal); margin-top: 0; margin-bottom: 20px;
         }
 
-        /* COLUMN 3: MENTORS (Sticky) */
-        .col-right-mentors {
+        /* MENTORS COL (STICKY) */
+        .mentors-col {
             position: sticky;
-            top: 80px;
+            top: 100px;
         }
-
         .mentors-title {
-            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
-            letter-spacing: 1.5px; color: var(--accent-navy); margin-bottom: 15px; font-weight: 700; border-bottom: 1px solid var(--border-line); padding-bottom: 5px;
+            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--accent-navy); margin-bottom: 20px; font-weight: 700; border-bottom: 1px solid var(--border-line); padding-bottom: 5px;
         }
 
+        /* DYNAMIC MENTOR CARDS */
         .mentor-card {
-            background: #fff; border: 1px solid var(--border-line); padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.01); margin-bottom: 20px;
+            background: #fff; border: 1px solid var(--border-line); padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 25px;
+            /* ANIMATION SETUP */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-origin: center;
         }
+
+        /* HOVER EFFECT: ZOOM & PAN OUT */
+        .mentor-card:hover {
+            transform: scale(1.05) translateY(-5px); /* Zooms in and lifts up */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Deep shadow for 3D effect */
+            border-color: var(--accent-gold);
+            z-index: 5;
+        }
+
         .mentor-link {
-            font-size: 0.9rem; color: var(--accent-navy); margin: 0 0 8px 0; display: inline-block;
-            border-bottom: 1px solid var(--accent-gold); padding-bottom: 1px; font-family: 'Playfair Display', serif; font-weight: 700;
+            font-size: 1.1rem; color: var(--accent-navy); margin: 0 0 10px 0; display: inline-block;
+            border-bottom: 1px solid var(--accent-gold); padding-bottom: 2px; font-family: 'Playfair Display', serif; font-weight: 700;
         }
         .mentor-card p {
-            font-size: 0.8rem; margin: 0; line-height: 1.5; color: var(--text-charcoal); font-style: italic;
+            font-size: 0.85rem; margin: 0; line-height: 1.6; color: var(--text-charcoal); font-style: italic;
         }
 
         /* --- CONTAINER UTILS --- */
@@ -231,20 +242,17 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            
-            /* MOBILE LAYOUT RESET */
-            .hero-3col-container { grid-template-columns: 1fr; gap: 40px; }
-            .col-left-bio { position: relative; top: 0; border-bottom: 1px dashed var(--border-line); padding-bottom: 30px; }
-            .col-right-mentors { position: relative; top: 0; margin-top: 30px; }
+            .content-split-container { grid-template-columns: 1fr; gap: 40px; }
+            .mentors-col { position: relative; top: 0; }
             .series-header { flex-direction: column; align-items: flex-start; gap: 5px; }
             .series-date { width: auto; font-size: 0.7rem; color: var(--accent-gold); }
             .series-content { padding: 15px 15px; }
-
-            /* FIX FOR MOBILE BANNERS (Ugly Cropping) */
+            
+            /* MOBILE BANNER FIX (No Crop) */
             .section-banner {
-                background-attachment: scroll; /* Disable fixed to show full image */
-                background-position: center center;
-                height: 200px; /* Optional: slightly smaller on phone */
+                background-attachment: scroll;
+                background-position: center;
+                height: 200px;
             }
         }
     </style>
@@ -260,28 +268,27 @@
         </ul>
     </nav>
 
-    <section id="home" class="hero-3col-container">
+    <header id="home" class="profile-header">
+        <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
+        <h1 class="hero-name">Mamoor Ali Khan</h1>
+        <div class="hero-title">Research Operations Specialist</div>
         
-        <div class="col-left-bio">
-            <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
-            <h1 class="hero-name">Mamoor Ali Khan</h1>
-            <div class="hero-title">Research Operations Specialist</div>
-            
-            <div class="contact-icons">
-                <a href="mailto:skhan24@nd.edu" class="icon-link" title="Email Me"><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/mamoor-ali-khan-5106a9171/?skipRedirect=true" target="_blank" class="icon-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="icon-link" title="Download CV"><i class="fas fa-file-alt"></i></a>
-            </div>
-
-            <div class="insta-note">
-                <i class="fab fa-instagram" style="margin-right:5px;"></i>
-                Beyond the data, I <a href="https://www.instagram.com/adventourist1/" target="_blank">document my travels</a> through photography.
-            </div>
+        <div class="contact-icons">
+            <a href="mailto:skhan24@nd.edu" class="icon-link" title="Email Me"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/mamoor-ali-khan-5106a9171/?skipRedirect=true" target="_blank" class="icon-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="icon-link" title="Download CV"><i class="fas fa-file-alt"></i></a>
         </div>
 
-        <div class="col-center-journey">
+        <div class="insta-note">
+            <i class="fab fa-instagram" style="margin-right:5px;"></i>
+            Beyond the data, I <a href="https://www.instagram.com/adventourist1/" target="_blank">document my travels</a> through photography.
+        </div>
+    </header>
+
+    <section class="content-split-container">
+        
+        <div class="journey-col">
             <h2 class="journey-heading">My Journey</h2>
-            
             <p>
                 It began in 2013. Fresh out of Computer Science, I found myself not in a tech startup, but as an intern in a pharmaceutical firm. It was there, amidst the rows of numbers and spreadsheets, that I discovered my true language: <strong>Data</strong>. 
             </p>
@@ -296,7 +303,7 @@
             </p>
         </div>
 
-        <div class="col-right-mentors">
+        <div class="mentors-col">
             <div class="mentors-title">In Gratitude</div>
             
             <div class="mentor-card">
