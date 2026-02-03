@@ -31,7 +31,7 @@
             background-color: var(--bg-paper);
             color: var(--text-ink);
             font-family: 'Merriweather', serif; 
-            line-height: 1.6; /* Tighter line height for academic feel */
+            line-height: 1.6;
             scroll-behavior: smooth;
             font-size: 15px; /* Base size reduced */
         }
@@ -54,7 +54,7 @@
             width: 100%;
             background-color: rgba(249, 248, 244, 0.98);
             border-bottom: 1px solid var(--accent-gold);
-            padding: 12px 0; /* Reduced padding */
+            padding: 12px 0;
             z-index: 1000;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -71,7 +71,7 @@
 
         .nav-links a {
             font-family: 'Playfair Display', serif;
-            font-size: 0.8rem; /* Smaller nav text */
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--text-ink);
@@ -80,18 +80,18 @@
         }
         .nav-links a:hover { color: var(--accent-gold); }
 
-        /* --- COMPACT SPLIT LAYOUT (Bio Left / Journey Right) --- */
+        /* --- COMPACT SPLIT LAYOUT --- */
         .hero-split-container {
             display: grid;
-            grid-template-columns: 300px 1fr; /* Narrower Bio col */
-            gap: 50px;
-            max-width: 1000px; /* Constrained width for readability */
+            grid-template-columns: 300px 1fr; /* Sidebar fixed, Content flexible */
+            gap: 60px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 60px 20px;
             align-items: start;
         }
 
-        /* LEFT COL: BIO + MENTORS (Sticky) */
+        /* LEFT COL: BIO (Sticky) */
         .hero-bio-col {
             text-align: center;
             position: sticky;
@@ -99,7 +99,7 @@
         }
 
         .profile-pic {
-            width: 150px; /* Reduced size */
+            width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
@@ -109,7 +109,7 @@
         }
 
         .hero-name {
-            font-size: 2.2rem; /* Significantly reduced from 3.5rem */
+            font-size: 2.2rem;
             margin-bottom: 5px;
             color: var(--accent-navy);
             line-height: 1.1;
@@ -133,75 +133,36 @@
         }
 
         .icon-link {
-            font-size: 1.3rem; /* Smaller icons */
+            font-size: 1.3rem;
             color: var(--text-charcoal);
             transition: all 0.3s ease;
             border-bottom: none !important;
         }
         .icon-link:hover { color: var(--accent-gold); transform: translateY(-3px); }
 
-        /* MENTOR SIDEBAR BOX */
-        .mentor-sidebar-box {
-            margin-top: 25px;
-            text-align: left;
-            border-top: 1px solid var(--border-line);
-            padding-top: 20px;
-        }
-        .mentor-sidebar-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-gold);
-            margin-bottom: 12px;
-            text-align: center;
-            font-weight: 700;
-        }
-        .mentor-mini-item {
-            background: #fff;
-            border: 1px solid var(--border-line);
-            padding: 12px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-        .mentor-mini-item h4 {
-            font-size: 0.9rem; 
-            margin: 0 0 5px 0; 
-            font-family: 'Playfair Display', serif;
-            border-bottom: 1px dotted var(--accent-navy);
-            display: inline-block;
-        }
-        .mentor-mini-item p {
-            font-size: 0.75rem; 
-            margin: 0; 
-            line-height: 1.5; 
-            color: var(--text-charcoal);
-            font-style: italic;
-        }
-
-        /* RESTORED HOBBY BOX (Instagram) */
+        /* INSTAGRAM HOBBY BOX (Sidebar) */
         .hobby-box {
             background-color: #fff;
             border: 1px solid var(--border-line);
-            border-left: 3px solid var(--accent-gold); /* Thinner border */
-            padding: 15px;
-            margin-top: 25px;
+            border-left: 3px solid var(--accent-gold);
+            padding: 20px;
+            margin-top: 30px;
             font-size: 0.8rem;
             color: var(--text-charcoal);
             box-shadow: 0 2px 5px rgba(0,0,0,0.02);
             text-align: left;
-            line-height: 1.5;
+            line-height: 1.6;
         }
-        .hobby-box i { font-size: 1rem; margin-right: 5px; color: #C13584; }
+        .hobby-box i { font-size: 1.1rem; margin-right: 8px; color: #C13584; }
 
-        /* RIGHT COL: JOURNEY TEXT */
+        /* RIGHT COL: JOURNEY & MENTORS */
         .hero-journey-col {
             padding-top: 10px;
         }
 
         .journey-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem; /* Reduced from 2.5rem */
+            font-size: 1.6rem;
             color: var(--accent-gold);
             margin-bottom: 20px;
             border-bottom: 2px solid var(--border-line);
@@ -211,24 +172,68 @@
 
         .journey-columns {
             column-count: 2;
-            column-gap: 30px;
+            column-gap: 40px;
             column-rule: 1px solid #e0e0e0;
             text-align: justify;
+            margin-bottom: 50px;
         }
         
         .journey-columns p {
             font-size: 0.85rem; /* Small, dense text */
-            line-height: 1.7;
+            line-height: 1.8;
             color: var(--text-charcoal);
             margin-top: 0;
             margin-bottom: 15px;
         }
 
-        /* --- STICKY BANNERS (The Curtain Effect) --- */
+        /* MENTORS GRID (Bottom of Journey) */
+        .mentors-section {
+            border-top: 1px solid var(--border-line);
+            padding-top: 30px;
+        }
+        .mentors-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .mentors-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .mentor-card {
+            background: #fff;
+            border: 1px solid var(--border-line);
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .mentor-link {
+            font-size: 1rem;
+            color: var(--accent-navy);
+            margin: 0 0 10px 0;
+            display: inline-block;
+            border-bottom: 1px solid var(--accent-gold);
+            padding-bottom: 2px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        .mentor-card p {
+            font-size: 0.8rem;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-charcoal);
+            font-style: italic;
+        }
+
+        /* --- STICKY BANNERS --- */
         .section-banner {
             position: sticky;
             top: 0;
-            height: 250px; /* Reduced height */
+            height: 250px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -290,6 +295,7 @@
             .hero-split-container { grid-template-columns: 1fr; gap: 40px; }
             .hero-bio-col { position: relative; top: 0; border-bottom: 1px dashed var(--border-line); padding-bottom: 30px; }
             .journey-columns { column-count: 1; }
+            .mentors-grid { grid-template-columns: 1fr; }
             .series-header { flex-direction: column; align-items: flex-start; gap: 5px; }
             .series-date { width: auto; font-size: 0.75rem; color: var(--accent-gold); }
             .series-content { padding: 15px 20px; }
@@ -320,25 +326,11 @@
                 <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="icon-link" title="Download CV"><i class="fas fa-file-alt"></i></a>
             </div>
 
-            <div class="mentor-sidebar-box">
-                <div class="mentor-sidebar-title">Mentorship</div>
-                
-                <div class="mentor-mini-item">
-                    <h4><a href="https://www.miriamgolden.com/" target="_blank">Dr. Miriam Golden</a></h4>
-                    <p>She trusted a naive boy with her most precious projects. I still recall the sting of embarrassment in early meetings, acutely aware of my lack of international education. Yet, where others might have seen a liability, Dr. Golden never lost faith. She has been the unshakable pillar of my career and has fundamentally shaped my life. I offer her my deepest respect; I simply cannot thank her enough.</p>
-                </div>
-                
-                <div class="mentor-mini-item">
-                    <h4><a href="https://saadgulzar.com/" target="_blank">Dr. Saad Gulzar</a></h4>
-                    <p>Dr. Gulzar is the catalyst for my professional ascent. He opened doors I did not know existed, giving me multiple opportunities within his research and introducing me to brilliant minds at Stanford, Yale, and Princeton. He didn't just give me a role; he gave me a horizon.</p>
-                </div>
-            </div>
-
             <div class="hobby-box">
                 <p style="margin: 0;">
                     <i class="fab fa-instagram"></i> 
                     <strong>Beyond the Data:</strong> While my profession is defined by rigorous research, my passion lies in exploration. 
-                    <a href="https://www.instagram.com/adventourist1/" target="_blank">Follow me on Instagram</a> 
+                    <a href="https://www.instagram.com/adventourist1/" target="_blank" style="text-decoration: underline;">Follow me on Instagram</a> 
                     to see the world through my lens, where I document my travels and showcase my photography and editing work.
                 </p>
             </div>
@@ -360,6 +352,29 @@
                 <p>
                     <strong>From Peshawar to Notre Dame.</strong> Today, I write this as a Research Manager at the <a href="https://kellogg.nd.edu/" target="_blank" style="color:var(--accent-navy); text-decoration: underline;">Kellogg Institute, University of Notre Dame</a>. It is a reality that feels worlds apart from where I began. My journey from the historic streets of Peshawar to the United States was paved with grit, the generosity of mentors, and an unyielding conviction to believe in oneself—transcending the fear of embarrassment and failure.
                 </p>
+            </div>
+
+            <div class="mentors-section">
+                <div class="mentors-title">In Gratitude: My Mentors</div>
+                <div class="mentors-grid">
+                    <div class="mentor-card">
+                        <a href="https://www.miriamgolden.com/" target="_blank" class="mentor-link">
+                            Dr. Miriam Golden <i class="fas fa-external-link-alt" style="font-size:0.8em"></i>
+                        </a>
+                        <p>
+                            She trusted a naive boy with her most precious projects. I still recall the sting of embarrassment in early meetings, acutely aware of my lack of international education. Yet, where others might have seen a liability, Dr. Golden never lost faith. She has been the unshakable pillar of my career and has fundamentally shaped my life. I offer her my deepest respect; I simply cannot thank her enough.
+                        </p>
+                    </div>
+                    
+                    <div class="mentor-card">
+                        <a href="https://saadgulzar.com/" target="_blank" class="mentor-link">
+                            Dr. Saad Gulzar <i class="fas fa-external-link-alt" style="font-size:0.8em"></i>
+                        </a>
+                        <p>
+                            Dr. Gulzar is the catalyst for my professional ascent. He opened doors I did not know existed, giving me multiple opportunities within his research and introducing me to brilliant minds at Stanford, Yale, and Princeton. He didn't just give me a role; he gave me a horizon.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
