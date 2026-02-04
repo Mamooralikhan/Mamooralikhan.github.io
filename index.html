@@ -11,17 +11,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- FUTURISTIC PALETTE --- */
+        /* --- FUTURISTIC GLASS PALETTE --- */
         :root {
-            --bg-paper: #f8fafc;
+            --bg-paper: #f0f4f8;       /* Very light blue-grey base */
             --text-ink: #0f172a;       /* Deep Slate */
             --text-charcoal: #334155;
-            --accent-cyan: #06b6d4;    /* Cyan/Teal for "Future" feel */
+            --accent-cyan: #06b6d4;    /* Future Cyan */
             --accent-navy: #0f172a;    
-            --border-line: #cbd5e1;    
-            --glass-bg: rgba(255, 255, 255, 0.75); /* Frosted Glass Base */
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            --border-line: rgba(255, 255, 255, 0.4);    
+            
+            /* GLASS VARIABLES */
+            --glass-bg: rgba(255, 255, 255, 0.65); 
+            --glass-border: rgba(255, 255, 255, 0.7);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --blur-strength: blur(16px);
         }
 
         /* --- GLOBAL RESET --- */
@@ -31,6 +34,8 @@
             margin: 0;
             padding: 0;
             background-color: var(--bg-paper);
+            /* Subtle gradient background for body to make glass cards pop */
+            background-image: linear-gradient(to bottom right, #f0f4f8, #dbeafe); 
             color: var(--text-ink);
             font-family: 'Merriweather', serif; 
             line-height: 1.7; 
@@ -51,7 +56,7 @@
 
         /* --- 1. HEADER CONTAINER (Background Image) --- */
         .liquid-header-bg {
-            /* Open Source "Data/Tech" Background */
+            /* Abstract Tech Background */
             background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
@@ -62,53 +67,66 @@
             align-items: center;
         }
 
-        /* Dark overlay to make the glass pop */
+        /* Dark overlay */
         .liquid-header-bg::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.6); /* Dark blue overlay */
+            background: rgba(15, 23, 42, 0.5); 
             z-index: 1;
         }
 
-        /* --- 2. THE LIQUID GLASS BOX --- */
+        /* --- 2. THE LIQUID GLASS BOX (HEADER CARD) --- */
         .glass-profile-card {
             position: relative;
-            z-index: 2; /* Sits above overlay */
+            z-index: 2;
             width: 100%;
             max-width: 1000px;
             
-            /* GLASSMORPHISM MAGIC */
+            /* THE GLASS EFFECT */
             background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: var(--blur-strength);
+            -webkit-backdrop-filter: var(--blur-strength);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: var(--shadow-glass);
+            border-radius: 20px;
+            box-shadow: var(--glass-shadow);
             
-            /* Layout */
+            /* Layout: Image Left, Text Right */
             display: grid;
-            grid-template-columns: 1fr 200px;
+            grid-template-columns: 200px 1fr; 
             gap: 40px;
             padding: 40px;
             align-items: center;
         }
 
+        /* Left Side: Image */
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px; /* Soft square */
+            border: 2px solid rgba(255,255,255,0.9);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Right Side: Text */
         .header-text-side {
-            text-align: right;
+            text-align: left;
         }
 
         .hero-name {
             font-size: 3rem; 
             margin: 0 0 5px 0;
             color: var(--text-ink);
-            text-shadow: 0 2px 4px rgba(255,255,255,0.5);
+            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
         }
 
         .hero-title {
-            font-family: 'Montserrat', sans-serif; /* Clean tech font for title */
+            font-family: 'Montserrat', sans-serif; 
             font-size: 0.9rem;
-            color: var(--accent-cyan); /* Future Cyan */
+            color: #0369a1; /* Darker Cyan/Blue for contrast on glass */
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -117,7 +135,7 @@
 
         .contact-icons {
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             gap: 25px;
             margin-bottom: 15px;
         }
@@ -138,16 +156,6 @@
             display: inline-block;
         }
 
-        /* SQUARE IMAGE */
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px; /* Slight rounding for polish */
-            border: 2px solid rgba(255,255,255,0.8);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
         /* --- 3. GLASS NAVIGATION (STICKY) --- */
         .glass-nav {
             position: sticky;
@@ -155,9 +163,10 @@
             z-index: 1000;
             
             /* GLASS EFFECT */
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.7); /* Slightly more transparent */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             
             padding: 12px 0;
@@ -178,12 +187,12 @@
             font-weight: 700;
             border-bottom: none;
         }
-        .nav-links a:hover { color: var(--accent-cyan); }
+        .nav-links a:hover { color: var(--accent-cyan); text-shadow: 0 0 10px rgba(6, 182, 212, 0.4); }
 
-        /* --- 4. CONTENT LAYOUT (Journey + Mentors) --- */
+        /* --- 4. CONTENT LAYOUT --- */
         .content-container {
             display: grid;
-            grid-template-columns: 1fr 350px; /* Journey gets space | Mentors fixed */
+            grid-template-columns: 1fr 350px; 
             gap: 60px;
             max-width: 1100px;
             margin: 0 auto;
@@ -206,24 +215,30 @@
         .mentors-title {
             font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
             letter-spacing: 2px; color: var(--accent-cyan); margin-bottom: 20px; font-weight: 700; 
-            border-bottom: 1px solid var(--border-line); padding-bottom: 5px; text-align: right;
+            border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 5px; text-align: right;
         }
 
+        /* --- 5. GLASS MENTOR CARDS --- */
         .mentor-card {
-            background: #fff;
-            border: 1px solid var(--border-line);
+            /* SAME GLASS EFFECT AS HEADER */
+            background: rgba(255, 255, 255, 0.6); /* Slightly more transparent than header */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            border-radius: 12px;
+            
             padding: 25px;
             margin-bottom: 25px;
-            border-left: 4px solid var(--accent-cyan); /* Cyan Accent */
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* ZOOM EFFECT */
+        /* ZOOM & GLOW EFFECT */
         .mentor-card:hover {
             transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: var(--text-ink);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.2); /* Cyan glow */
+            border-color: var(--accent-cyan);
             z-index: 10;
         }
 
@@ -233,7 +248,7 @@
         }
         .mentor-card p { font-size: 0.9rem; margin: 0; line-height: 1.5; font-style: italic; }
 
-        /* --- BANNERS (PARALLAX) --- */
+        /* --- BANNERS --- */
         .section-banner {
             height: 250px; 
             background-attachment: fixed; 
@@ -245,7 +260,7 @@
             justify-content: center;
         }
         .banner-overlay {
-            background: rgba(15, 23, 42, 0.6); /* Darker blue overlay */
+            background: rgba(15, 23, 42, 0.6); 
             width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
         }
         .banner-title {
@@ -262,15 +277,15 @@
         /* --- CONTAINER UTILS --- */
         .container {
             max-width: 900px; margin: 0 auto; padding: 60px 20px;
-            background-color: var(--bg-paper); position: relative; z-index: 10;
+            position: relative; z-index: 10;
         }
 
-        /* --- TIMELINE (Experience) --- */
+        /* --- TIMELINE --- */
         .timeline-container { position: relative; padding-left: 30px; }
-        .timeline-container::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 20px; width: 1px; background: var(--border-line); }
+        .timeline-container::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 20px; width: 1px; background: #cbd5e1; }
         .timeline-series-item { position: relative; margin-bottom: 15px; }
         .timeline-series-item::after { content: ''; position: absolute; left: -28px; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: #fff; border: 2px solid var(--accent-cyan); z-index: 2; }
-        .series-card { background: #fff; border: 1px solid var(--border-line); border-radius: 4px; overflow: hidden; transition: all 0.3s ease; }
+        .series-card { background: #fff; border: 1px solid #cbd5e1; border-radius: 4px; overflow: hidden; transition: all 0.3s ease; }
         .series-card:hover { border-color: var(--accent-cyan); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         summary { list-style: none; padding: 15px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
         summary::-webkit-details-marker { display: none; }
@@ -283,15 +298,23 @@
         details[open] summary .arrow-icon { transform: rotate(180deg); color: var(--accent-cyan); }
         .series-content { padding: 0 20px 20px 165px; border-top: 1px solid #f0f0f0; color: var(--text-charcoal); font-size: 0.95rem; line-height: 1.6; background: #fafafa; padding-top: 15px; }
 
+        /* --- RESEARCH STYLES --- */
+        .research-category-title { font-family: 'Montserrat', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-navy); border-bottom: 2px solid #cbd5e1; padding-bottom: 10px; margin-bottom: 30px; }
+
+        /* FOOTER */
+        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: var(--text-charcoal); background-color: #f1f5f9; border-top: 1px solid #cbd5e1; position: relative; z-index: 10; }
+
         /* Responsive */
         @media (max-width: 900px) {
+            /* Switch to vertical on mobile */
             .glass-profile-card { grid-template-columns: 1fr; text-align: center; gap: 20px; }
-            .header-text-side { text-align: center; order: 2; }
-            .profile-pic { order: 1; margin: 0 auto; width: 150px; height: 150px; }
+            .header-text-side { text-align: center; }
+            .profile-pic { margin: 0 auto; width: 150px; height: 150px; }
             .contact-icons { justify-content: center; }
             
             .content-container { grid-template-columns: 1fr; gap: 40px; }
             .mentors-col { position: relative; top: 0; }
+            .mentors-title { text-align: center; }
             
             .series-header { flex-direction: column; align-items: flex-start; gap: 5px; }
             .series-date { width: auto; font-size: 0.75rem; }
@@ -304,6 +327,9 @@
 
     <header id="home" class="liquid-header-bg">
         <div class="glass-profile-card">
+            
+            <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
+
             <div class="header-text-side">
                 <h1 class="hero-name">Mamoor Ali Khan</h1>
                 <div class="hero-title">Research Operations Specialist</div>
@@ -320,7 +346,6 @@
                 </div>
             </div>
 
-            <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
         </div>
     </header>
 
