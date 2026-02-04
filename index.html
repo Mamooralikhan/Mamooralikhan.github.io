@@ -24,13 +24,14 @@
             --accent-glow: rgba(141, 123, 104, 0.4); 
             --border-line: #e2e8f0;
             
-            /* --- LIQUID GLASS VARIABLES --- */
-            --liquid-bg: rgba(255, 255, 255, 0.7);
-            --liquid-border: 1px solid rgba(255, 255, 255, 0.8);
+            /* --- ENHANCED LIQUID GLASS VARIABLES --- */
+            /* Increased opacity (0.8) for better pop, stronger blur */
+            --liquid-bg: rgba(255, 255, 255, 0.8); 
+            --liquid-border: 1px solid rgba(255, 255, 255, 0.95);
             --liquid-shadow: 
-                inset 0 1px 2px rgba(255, 255, 255, 0.9), 
-                0 10px 30px rgba(0, 0, 0, 0.1);
-            --liquid-blur: blur(20px) saturate(180%);
+                0 8px 32px rgba(0, 0, 0, 0.12), /* Deep shadow */
+                inset 0 0 0 1px rgba(255, 255, 255, 0.5); /* Inner rim light */
+            --liquid-blur: blur(25px) saturate(200%); /* Stronger blur */
         }
 
         /* --- GLOBAL RESET --- */
@@ -61,7 +62,7 @@
         /* --- LIQUID NAVIGATION --- */
         .top-nav {
             position: sticky; top: 0; width: 100%;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.6);
             padding: 15px 0; z-index: 1000; text-align: center;
@@ -81,27 +82,27 @@
         /* --- CONTAINER --- */
         .container { max-width: 1250px; margin: 0 auto; padding: 50px 30px; }
 
-        /* --- HERO BANNER --- */
+        /* --- HERO BANNER (REDUCED HEIGHT) --- */
         .profile-banner-wrapper {
             width: 100%;
-            /* UPDATED BACKGROUND: Geometric Architectural Patterns */
             background-image: url('https://unsplash.com/photos/LrwVWQyJJzg/download?force=true&w=1920');
-            background-color: #334155; /* Fallback color */
-            background-attachment: fixed; /* Parallax */
+            background-color: #334155; 
+            background-attachment: fixed; 
             background-position: center;
             background-size: cover;
-            padding: 100px 20px;
+            /* REDUCED PADDING: 50px top/bottom (was 100px) */
+            padding: 50px 20px; 
             display: flex; justify-content: center; align-items: center;
             position: relative;
         }
 
         .profile-banner-wrapper::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.2); /* Light Navy tint */
+            background: rgba(15, 23, 42, 0.2); 
             z-index: 0;
         }
 
-        /* --- LIQUID GLASS PROFILE (NEW LAYOUT) --- */
+        /* --- LIQUID GLASS PROFILE --- */
         .glass-profile {
             position: relative; z-index: 1;
             background: var(--liquid-bg);
@@ -116,7 +117,7 @@
             /* GRID LAYOUT: Pic | Center Info | Right Actions */
             display: grid;
             grid-template-columns: auto 1fr auto;
-            align-items: center; /* Vertically aligns Name to middle of Pic */
+            align-items: center; 
             gap: 50px;
         }
 
@@ -127,27 +128,19 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        /* Center Column: Name & Position */
-        .profile-center {
-            display: flex; flex-direction: column; justify-content: center;
-        }
-
+        /* Center Column */
+        .profile-center { display: flex; flex-direction: column; justify-content: center; }
         .hero-name { font-size: 2.5rem; margin-bottom: 5px; line-height: 1.1; color: var(--accent-primary); }
         .hero-title {
             font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: var(--text-charcoal);
             font-style: italic; text-transform: uppercase; letter-spacing: 2px;
         }
 
-        /* Right Column: Buttons & Insta */
-        .profile-right {
-            display: flex; flex-direction: column; gap: 20px; align-items: flex-end;
-        }
+        /* Right Column */
+        .profile-right { display: flex; flex-direction: column; gap: 20px; align-items: flex-end; }
 
-        /* LIQUID GLASS BUTTONS */
-        .action-buttons {
-            display: flex; gap: 15px;
-        }
-
+        /* BUTTONS */
+        .action-buttons { display: flex; gap: 15px; }
         .glass-btn {
             display: flex; align-items: center; gap: 10px;
             padding: 12px 24px;
@@ -162,14 +155,12 @@
         }
 
         .glass-btn:hover {
-            background: #fff;
-            transform: translateY(-3px);
+            background: #fff; transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             color: var(--accent-secondary); border-color: var(--accent-secondary);
         }
         .glass-btn i { font-size: 1rem; }
 
-        /* INSTAGRAM SECTION */
         .insta-note {
             display: inline-flex; align-items: center; gap: 10px;
             padding: 10px 20px;
@@ -192,17 +183,42 @@
         }
         .content-text p { font-size: 1.05rem; margin-bottom: 20px; text-align: justify; color: var(--text-charcoal); }
 
+        /* --- INDEPENDENT MENTOR BOXES --- */
         .mentors-col {
-            background: var(--liquid-bg); backdrop-filter: var(--liquid-blur); -webkit-backdrop-filter: var(--liquid-blur);
-            border: var(--liquid-border); box-shadow: var(--liquid-shadow);
-            padding: 30px; border-radius: 15px;
+            /* Removed the container background */
+            background: transparent; border: none; padding: 0; box-shadow: none;
         }
-        .mentors-title { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 20px; color: var(--accent-secondary); }
-        .mentor-card { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .mentor-card:last-child { border-bottom: none; padding-bottom: 0; }
-        .mentor-link { font-size: 1.1rem; font-family: 'Playfair Display', serif; display: block; margin-bottom: 5px; }
+        .mentors-title { 
+            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase; 
+            letter-spacing: 2px; font-weight: 700; margin-bottom: 20px; 
+            color: var(--accent-secondary); border-bottom: 1px solid var(--border-line); padding-bottom: 5px;
+        }
+        
+        /* Each Mentor Card is now a Liquid Glass Box */
+        .mentor-card { 
+            background: var(--liquid-bg);
+            border: var(--liquid-border);
+            box-shadow: var(--liquid-shadow);
+            backdrop-filter: var(--liquid-blur);
+            -webkit-backdrop-filter: var(--liquid-blur);
+            border-radius: 15px; /* Rounded corners */
+            
+            padding: 25px; 
+            margin-bottom: 25px; 
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover Effect for Mentor Box */
+        .mentor-card:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 0 15px var(--accent-glow);
+            border-color: var(--accent-secondary);
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .mentor-link { font-size: 1.1rem; font-family: 'Playfair Display', serif; display: block; margin-bottom: 8px; }
 
-        /* --- EXPERIENCE SECTION --- */
+        /* --- EXPERIENCE SECTION (FUTURISTIC) --- */
         .timeline-container { padding-left: 0; margin-top: 30px; }
         .timeline-container::before { display: none; }
         .timeline-series-item::after { display: none; }
@@ -347,10 +363,12 @@
             
             <div class="mentors-col">
                 <div class="mentors-title">In Gratitude</div>
+                
                 <div class="mentor-card">
                     <a href="https://www.miriamgolden.com/" target="_blank" class="mentor-link">Dr. Miriam Golden <i class="fas fa-external-link-alt" style="font-size:0.7em"></i></a>
                     <p>She trusted a naive boy with her most precious projects. I still recall the sting of embarrassment in early meetings, acutely aware of my lack of international education. Yet, where others might have seen a liability, Dr. Golden never lost faith. She has been the unshakable pillar of my career and has fundamentally shaped my life. I offer her my deepest respect; I simply cannot thank her enough.</p>
                 </div>
+
                 <div class="mentor-card">
                     <a href="https://saadgulzar.com/" target="_blank" class="mentor-link">Dr. Saad Gulzar <i class="fas fa-external-link-alt" style="font-size:0.7em"></i></a>
                     <p>Dr. Gulzar is the catalyst for my professional ascent. He opened doors I did not know existed, giving me multiple opportunities within his research and introducing me to brilliant minds at Stanford, Yale, and Princeton. He didn't just give me a role; he gave me a horizon.</p>
