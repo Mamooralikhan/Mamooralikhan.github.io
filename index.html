@@ -11,34 +11,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- SUPREME ACADEMIC PALETTE (RESTORED) --- */
+        /* --- ELITE ACADEMIC PALETTE --- */
         :root {
-            --bg-paper: #f9f8f4;       /* The "Supreme" Warm White */
-            --text-ink: #1c1c1c;       /* Sharp Black */
+            --bg-paper: #f9f8f4;
+            --text-ink: #1c1c1c;
             --text-charcoal: #4a4a4a;
-            --accent-gold: #b38b4d;    /* Muted Gold */
-            --accent-navy: #1e2a38;    /* Academic Navy */
-            --border-line: #dcd8d0;    
-            
-            /* GLASS VARIABLES */
-            --glass-bg: rgba(255, 255, 255, 0.85); /* Whiter, cleaner glass */
-            --glass-border: rgba(255, 255, 255, 0.9);
-            --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* Soft, expensive shadow */
-            --blur-strength: blur(12px);
+            --accent-gold: #b38b4d;
+            --accent-navy: #1e2a38;
+            --border-line: #dcd8d0;
+            --bg-highlight: #f0ede6;
         }
 
-        /* --- GLOBAL RESET --- */
+        /* --- GLOBAL RESET & TYPOGRAPHY --- */
         * { box-sizing: border-box; }
         
         body, html {
             margin: 0;
             padding: 0;
-            background-color: var(--bg-paper); /* Restored Background */
+            background-color: var(--bg-paper);
             color: var(--text-ink);
             font-family: 'Merriweather', serif; 
-            line-height: 1.8; 
+            line-height: 1.7; 
             scroll-behavior: smooth;
-            font-size: 16px; 
+            font-size: 14px; /* SMALL ACADEMIC BASE */
         }
 
         h1, h2, h3, h4 {
@@ -52,305 +47,211 @@
         p a { border-bottom: 1px dotted var(--accent-navy); }
         p a:hover { color: var(--accent-gold); border-bottom: 1px solid var(--accent-gold); }
 
-        /* --- 1. HEADER CONTAINER (Background Image) --- */
-        .liquid-header-bg {
-            /* High-End Abstract Tech Background */
-            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            padding: 80px 20px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Dark overlay for contrast */
-        .liquid-header-bg::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(30, 42, 56, 0.5); /* Navy tint */
-            z-index: 1;
-        }
-
-        /* --- 2. THE LIQUID GLASS BOX (HEADER CARD) --- */
-        .glass-profile-card {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 950px;
-            
-            /* CLEAN GLASS EFFECT */
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur-strength);
-            -webkit-backdrop-filter: var(--blur-strength);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            box-shadow: var(--glass-shadow);
-            
-            /* Layout: Image Left, Text Right */
-            display: grid;
-            grid-template-columns: 200px 1fr; 
-            gap: 50px;
-            padding: 45px;
-            align-items: center;
-        }
-
-        /* Left Side: Image */
-        .profile-pic {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 4px; /* Sharp Square with slight radius */
-            border: 1px solid var(--accent-navy);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            display: block;
-        }
-
-        /* Right Side: Text */
-        .header-text-side {
-            text-align: left;
-        }
-
-        .hero-name {
-            font-size: 3.2rem; 
-            margin: 0 0 8px 0;
-            color: var(--accent-navy); /* Sharp Navy Color */
-            line-height: 1.1;
-            /* No text-shadow for cleaner look */
-        }
-
-        .hero-title {
-            font-family: 'Montserrat', sans-serif; 
-            font-size: 0.85rem;
-            color: var(--text-charcoal);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 12px;
-        }
-
-        .contact-icons {
-            display: flex;
-            justify-content: flex-start;
-            gap: 25px;
-            margin-bottom: 20px;
-        }
-
-        .icon-link {
-            font-size: 1.4rem;
-            color: var(--text-charcoal);
-            border-bottom: none !important;
-        }
-        .icon-link:hover { color: var(--accent-gold); transform: translateY(-2px); }
-
-        .insta-note {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 15px;
-            display: inline-block;
-            width: 100%;
-        }
-
-        /* --- 3. GLASS NAVIGATION (STICKY) --- */
-        .glass-nav {
+        /* --- NAVIGATION --- */
+        .top-nav {
             position: sticky;
             top: 0;
-            z-index: 1000;
-            
-            /* GLASS EFFECT */
-            background: rgba(249, 248, 244, 0.95); /* Matches Supreme BG */
-            backdrop-filter: blur(10px);
+            width: 100%;
+            background-color: rgba(249, 248, 244, 0.98);
             border-bottom: 1px solid var(--accent-gold);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            
-            padding: 15px 0;
+            padding: 10px 0;
+            z-index: 1000;
             text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .nav-links {
-            list-style: none; padding: 0; margin: 0;
-            display: flex; justify-content: center; gap: 40px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
         }
 
         .nav-links a {
             font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
+            font-size: 0.75rem; 
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--text-ink);
-            font-weight: 700;
             border-bottom: none;
+            font-weight: 700;
         }
         .nav-links a:hover { color: var(--accent-gold); }
 
-        /* --- 4. CONTENT LAYOUT --- */
-        .content-container {
-            display: grid;
-            grid-template-columns: 1fr 350px; 
-            gap: 60px;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 80px 20px;
-            align-items: start;
-        }
-
-        /* Journey Text */
-        .journey-col { text-align: justify; }
-        
-        .journey-heading {
-            font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--accent-navy);
-            margin-bottom: 30px; border-bottom: 2px solid var(--border-line); padding-bottom: 10px; display: inline-block;
-        }
-        .journey-col p { font-size: 1rem; margin-bottom: 25px; color: var(--text-charcoal); }
-
-        /* Mentors (Right Sidebar) */
-        .mentors-col { position: sticky; top: 100px; }
-        
-        .mentors-title {
-            font-family: 'Montserrat', sans-serif; font-size: 0.8rem; text-transform: uppercase;
-            letter-spacing: 2px; color: var(--accent-gold); margin-bottom: 20px; font-weight: 700; 
-            border-bottom: 1px solid var(--border-line); padding-bottom: 5px; text-align: right;
-        }
-
-        /* --- 5. GLASS MENTOR CARDS --- */
-        .mentor-card {
-            background: #fff;
-            border: 1px solid var(--border-line);
-            border-radius: 8px;
-            
-            /* SUBTLE GLASS FEEL */
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            
-            padding: 25px;
-            margin-bottom: 25px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        /* ZOOM & GLOW EFFECT */
-        .mentor-card:hover {
-            transform: scale(1.03) translateY(-3px);
-            background: #fff;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
-            border-color: var(--accent-gold);
-            z-index: 10;
-        }
-
-        .mentor-link {
-            font-size: 1.1rem; color: var(--accent-navy); margin: 0 0 10px 0; display: inline-block;
-            border-bottom: 1px solid var(--accent-gold); padding-bottom: 1px; font-family: 'Playfair Display', serif; font-weight: 700;
-        }
-        .mentor-card p { font-size: 0.9rem; margin: 0; line-height: 1.6; font-style: italic; }
-
-        /* --- BANNERS (FIXED & WORKING LINKS) --- */
+        /* --- SECTION BANNERS (PARALLAX) --- */
         .section-banner {
-            height: 250px; 
-            background-attachment: fixed; 
+            height: 280px; 
+            background-attachment: fixed; /* PARALLAX ON DESKTOP */
             background-position: center;
             background-size: cover;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .banner-overlay {
-            background: rgba(30, 42, 56, 0.4); 
-            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-        }
-        .banner-title {
-            color: #fff; font-size: 2rem; letter-spacing: 3px; text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.8); padding: 10px 40px;
-            backdrop-filter: blur(5px);
+            margin-bottom: 0;
         }
 
-        /* FIXED IMAGES (Unsplash Links) */
-        .bg-journey { background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021&auto=format&fit=crop'); }
-        .bg-experience { background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop'); }
-        .bg-research { background-image: url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=2070&auto=format&fit=crop'); }
-        .bg-affiliations { background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop'); }
+        .banner-overlay {
+            background: rgba(10, 10, 15, 0.4); 
+            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+        }
+
+        .banner-title {
+            color: #fff; font-size: 1.8rem; letter-spacing: 3px; text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.7); padding: 10px 30px;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); text-align: center;
+        }
+
+        /* BACKGROUND IMAGES */
+        .bg-journey { background-image: url('images/journey.jpg'); }
+        .bg-experience { background-image: url('images/experience.jpg'); }
+        .bg-research { background-image: url('images/research.jpg'); }
+        .bg-affiliations { background-image: url('images/affiliations.jpg'); }
+
+        /* --- 3-COLUMN HERO SECTION --- */
+        .hero-3col-container {
+            display: grid;
+            grid-template-columns: 260px 1fr 260px; /* Bio | Journey | Mentors */
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            align-items: start;
+            background-color: var(--bg-paper); 
+            position: relative; 
+            z-index: 10;
+        }
+
+        /* COLUMN 1: BIO (Sticky) */
+        .col-left-bio {
+            text-align: center;
+            position: sticky;
+            top: 80px; 
+        }
+
+        .profile-pic {
+            width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+            border: 3px solid #fff; box-shadow: 0 0 0 1px var(--accent-gold); margin-bottom: 15px;
+        }
+
+        .hero-name {
+            font-size: 1.8rem; margin-bottom: 5px; color: var(--accent-navy); line-height: 1.1;
+        }
+
+        .hero-title {
+            font-family: 'Merriweather', serif; font-size: 0.75rem; color: var(--text-charcoal);
+            font-style: italic; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        .contact-icons {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;
+        }
+
+        .icon-link {
+            font-size: 1.2rem; color: var(--text-charcoal); transition: all 0.3s ease; border-bottom: none !important;
+        }
+        .icon-link:hover { color: var(--accent-gold); transform: translateY(-3px); }
+
+        .insta-note {
+            font-size: 0.75rem; color: #888; font-style: italic; margin-top: 20px;
+            border-top: 1px solid var(--border-line); padding-top: 15px; line-height: 1.4;
+        }
+        .insta-note a { color: #555; border-bottom: 1px dotted #ccc; }
+        .insta-note a:hover { color: #C13584; border-bottom: 1px solid #C13584; }
+
+        /* COLUMN 2: JOURNEY TEXT */
+        .col-center-journey {
+            padding-top: 5px;
+            text-align: justify;
+        }
+
+        .journey-heading {
+            font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--accent-gold);
+            margin-bottom: 20px; border-bottom: 2px solid var(--border-line); padding-bottom: 8px; display: block; text-align: center;
+        }
+        
+        .col-center-journey p {
+            font-size: 0.95rem; line-height: 1.8; color: var(--text-charcoal); margin-top: 0; margin-bottom: 20px;
+        }
+
+        /* COLUMN 3: MENTORS (Sticky) */
+        .col-right-mentors {
+            position: sticky;
+            top: 80px;
+        }
+
+        .mentors-title {
+            font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--accent-navy); margin-bottom: 15px; font-weight: 700; border-bottom: 1px solid var(--border-line); padding-bottom: 5px;
+        }
+
+        .mentor-card {
+            background: #fff; border: 1px solid var(--border-line); padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.01); margin-bottom: 20px;
+        }
+        .mentor-link {
+            font-size: 0.9rem; color: var(--accent-navy); margin: 0 0 8px 0; display: inline-block;
+            border-bottom: 1px solid var(--accent-gold); padding-bottom: 1px; font-family: 'Playfair Display', serif; font-weight: 700;
+        }
+        .mentor-card p {
+            font-size: 0.8rem; margin: 0; line-height: 1.5; color: var(--text-charcoal); font-style: italic;
+        }
 
         /* --- CONTAINER UTILS --- */
         .container {
             max-width: 900px; margin: 0 auto; padding: 60px 20px;
-            position: relative; z-index: 10;
+            background-color: var(--bg-paper); position: relative; z-index: 10;
         }
 
-        /* --- TIMELINE --- */
-        .timeline-container { position: relative; padding-left: 30px; }
+        /* --- TIMELINE STYLES --- */
+        .timeline-container { position: relative; padding-left: 25px; }
         .timeline-container::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 20px; width: 1px; background: var(--border-line); }
-        .timeline-series-item { position: relative; margin-bottom: 15px; }
+        .timeline-series-item { position: relative; margin-bottom: 12px; }
         .timeline-series-item::after { content: ''; position: absolute; left: -28px; top: 18px; width: 8px; height: 8px; border-radius: 50%; background: #fff; border: 2px solid var(--accent-gold); z-index: 2; }
-        .series-card { background: #fff; border: 1px solid var(--border-line); border-radius: 4px; overflow: hidden; transition: all 0.3s ease; }
-        .series-card:hover { border-color: var(--accent-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        summary { list-style: none; padding: 15px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
+        .series-card { background: #fff; border: 1px solid var(--border-line); border-radius: 3px; overflow: hidden; transition: all 0.3s ease; }
+        .series-card:hover { border-color: var(--accent-gold); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+        summary { list-style: none; padding: 12px 18px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #fff; }
         summary::-webkit-details-marker { display: none; }
         .series-header { display: flex; align-items: center; width: 100%; gap: 15px; }
-        .series-date { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: var(--accent-gold); width: 130px; flex-shrink: 0; font-weight: 600; }
+        .series-date { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: var(--text-charcoal); width: 120px; flex-shrink: 0; font-weight: 600; }
         .series-info { display: flex; flex-direction: column; }
-        .series-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text-ink); font-weight: 700; }
-        .series-company { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-charcoal); }
-        .arrow-icon { color: var(--text-charcoal); font-size: 0.9rem; transition: transform 0.3s ease; }
+        .series-title { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--text-ink); font-weight: 700; }
+        .series-company { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-gold); }
+        .arrow-icon { color: var(--text-charcoal); font-size: 0.8rem; transition: transform 0.3s ease; }
         details[open] summary .arrow-icon { transform: rotate(180deg); color: var(--accent-gold); }
-        .series-content { padding: 0 20px 20px 165px; border-top: 1px solid #f0f0f0; color: var(--text-charcoal); font-size: 0.95rem; line-height: 1.6; background: #fafafa; padding-top: 15px; }
+        .series-content { padding: 0 18px 18px 153px; border-top: 1px solid #f0f0f0; color: var(--text-charcoal); font-size: 0.85rem; line-height: 1.6; background: #fafafa; padding-top: 12px; }
 
         /* --- RESEARCH STYLES --- */
-        .research-category-title { font-family: 'Montserrat', sans-serif; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-navy); border-bottom: 2px solid var(--border-line); padding-bottom: 10px; margin-bottom: 30px; }
+        .research-category-title { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-gold); border-bottom: 2px solid var(--border-line); padding-bottom: 8px; margin-bottom: 25px; }
 
         /* FOOTER */
-        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: var(--text-charcoal); background-color: #f1f5f9; border-top: 1px solid var(--border-line); position: relative; z-index: 10; }
+        footer { text-align: center; padding: 60px; font-size: 0.75rem; color: var(--text-charcoal); background-color: #f4f2ed; border-top: 1px solid var(--border-line); position: relative; z-index: 10; }
 
         /* Responsive */
         @media (max-width: 900px) {
-            .glass-profile-card { grid-template-columns: 1fr; text-align: center; gap: 20px; }
-            .header-text-side { text-align: center; }
-            .profile-pic { margin: 0 auto; width: 150px; height: 150px; }
-            .contact-icons { justify-content: center; }
             
-            .content-container { grid-template-columns: 1fr; gap: 40px; }
-            .mentors-col { position: relative; top: 0; }
-            .mentors-title { text-align: center; }
-            
+            /* MOBILE LAYOUT RESET */
+            .hero-3col-container { grid-template-columns: 1fr; gap: 40px; }
+            .col-left-bio { position: relative; top: 0; border-bottom: 1px dashed var(--border-line); padding-bottom: 30px; }
+            .col-right-mentors { position: relative; top: 0; margin-top: 30px; }
             .series-header { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .series-date { width: auto; font-size: 0.75rem; }
-            .series-content { padding: 15px 20px; }
-            .section-banner { background-attachment: scroll; background-position: center; height: 180px; }
+            .series-date { width: auto; font-size: 0.7rem; color: var(--accent-gold); }
+            .series-content { padding: 15px 15px; }
+
+            /* FIX FOR MOBILE BANNERS (Ugly Cropping) */
+            .section-banner {
+                background-attachment: scroll; /* Disable fixed to show full image */
+                background-position: center center;
+                height: 200px; /* Optional: slightly smaller on phone */
+            }
         }
     </style>
 </head>
 <body>
 
-    <header id="home" class="liquid-header-bg">
-        <div class="glass-profile-card">
-            
-            <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
-
-            <div class="header-text-side">
-                <h1 class="hero-name">Mamoor Ali Khan</h1>
-                <div class="hero-title">Research Operations Specialist</div>
-                
-                <div class="contact-icons">
-                    <a href="mailto:skhan24@nd.edu" class="icon-link" title="Email Me"><i class="fas fa-envelope"></i></a>
-                    <a href="https://linkedin.com/in/mamoor-ali-khan-5106a9171/?skipRedirect=true" target="_blank" class="icon-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="icon-link" title="Download CV"><i class="fas fa-file-alt"></i></a>
-                </div>
-
-                <div class="insta-note">
-                    <i class="fab fa-instagram" style="margin-right:5px;"></i>
-                    Beyond the data, I <a href="https://www.instagram.com/adventourist1/" target="_blank">document my travels</a> through photography.
-                </div>
-            </div>
-
-        </div>
-    </header>
-
-    <nav class="glass-nav">
+    <nav class="top-nav">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#experience">Work</a></li>
@@ -359,10 +260,28 @@
         </ul>
     </nav>
 
-    <section class="content-container">
+    <section id="home" class="hero-3col-container">
         
-        <div class="journey-col">
+        <div class="col-left-bio">
+            <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
+            <h1 class="hero-name">Mamoor Ali Khan</h1>
+            <div class="hero-title">Research Operations Specialist</div>
+            
+            <div class="contact-icons">
+                <a href="mailto:skhan24@nd.edu" class="icon-link" title="Email Me"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/mamoor-ali-khan-5106a9171/?skipRedirect=true" target="_blank" class="icon-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="icon-link" title="Download CV"><i class="fas fa-file-alt"></i></a>
+            </div>
+
+            <div class="insta-note">
+                <i class="fab fa-instagram" style="margin-right:5px;"></i>
+                Beyond the data, I <a href="https://www.instagram.com/adventourist1/" target="_blank">document my travels</a> through photography.
+            </div>
+        </div>
+
+        <div class="col-center-journey">
             <h2 class="journey-heading">My Journey</h2>
+            
             <p>
                 It began in 2013. Fresh out of Computer Science, I found myself not in a tech startup, but as an intern in a pharmaceutical firm. It was there, amidst the rows of numbers and spreadsheets, that I discovered my true language: <strong>Data</strong>. 
             </p>
@@ -377,7 +296,7 @@
             </p>
         </div>
 
-        <div class="mentors-col">
+        <div class="col-right-mentors">
             <div class="mentors-title">In Gratitude</div>
             
             <div class="mentor-card">
@@ -406,7 +325,7 @@
             <h2 class="banner-title">Experience</h2>
         </div>
     </div>
-    
+
     <section class="container">
         <div class="timeline-container">
             
