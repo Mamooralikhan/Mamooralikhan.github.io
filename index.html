@@ -19,9 +19,9 @@
             --text-charcoal: #334155;
             --text-muted: #64748b;
             
-            /* UPDATED ACCENTS: Replaced Gold with Bronze/Slate */
+            /* ACCENTS: Deep Bronze & Slate */
             --accent-primary: #0f172a; /* Dark Navy/Slate */
-            --accent-secondary: #8d7b68; /* Deep Bronze (No longer Gold) */
+            --accent-secondary: #8d7b68; /* Deep Bronze */
             --accent-highlight: #475569; /* Cool Slate */
             --border-line: #e2e8f0;
             
@@ -207,7 +207,6 @@
         }
 
         /* --- COMPATIBILITY STYLES FOR SECTIONS BELOW --- */
-        /* These ensure the parts you didn't ask to update still look good with the new theme */
         
         .section-banner {
             height: 180px; 
@@ -227,17 +226,52 @@
             background: rgba(0,0,0,0.3); backdrop-filter: blur(4px);
         }
         
-        /* Timeline/Research Updates */
-        .timeline-container { position: relative; padding-left: 20px; }
-        .timeline-container::before { background: var(--border-line); }
-        .timeline-series-item::after { border-color: var(--accent-secondary); }
-        .series-card { border: 1px solid var(--border-line); }
-        .series-card:hover { border-color: var(--accent-secondary); }
-        .series-date { color: var(--accent-secondary); font-weight: 700; }
-        .series-company { color: var(--accent-secondary); }
-        .research-category-title { color: var(--accent-primary); border-bottom-color: var(--accent-secondary); }
-        details[open] summary .arrow-icon { color: var(--accent-secondary); }
-        summary:hover { color: var(--accent-secondary); }
+        /* --- RESTORED TIMELINE STYLES (with Glass & New Colors) --- */
+        .timeline-container { position: relative; padding-left: 25px; margin-top: 10px; }
+        .timeline-container::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 20px; width: 1px; background: var(--border-line); }
+        .timeline-series-item { position: relative; margin-bottom: 15px; }
+        .timeline-series-item::after { 
+            content: ''; position: absolute; left: -28px; top: 18px; width: 8px; height: 8px; 
+            border-radius: 50%; background: #fff; border: 2px solid var(--accent-secondary); z-index: 2; 
+        }
+        
+        /* GLASS EFFECT ON TIMELINE CARDS */
+        .series-card { 
+            background: var(--glass-bg);
+            border: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 4px; 
+            overflow: hidden; 
+            transition: all 0.3s ease; 
+        }
+        .series-card:hover { border-color: var(--accent-secondary); box-shadow: 0 6px 15px rgba(0,0,0,0.06); }
+
+        summary { list-style: none; padding: 15px 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: transparent; }
+        summary::-webkit-details-marker { display: none; }
+        
+        .series-header { display: flex; align-items: center; width: 100%; gap: 20px; }
+        .series-date { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: var(--accent-secondary); width: 130px; flex-shrink: 0; font-weight: 700; }
+        .series-info { display: flex; flex-direction: column; }
+        .series-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--accent-primary); font-weight: 700; }
+        .series-company { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-secondary); }
+        
+        .arrow-icon { color: var(--text-muted); font-size: 0.9rem; transition: transform 0.3s ease; }
+        details[open] summary .arrow-icon { transform: rotate(180deg); color: var(--accent-secondary); }
+        
+        .series-content { 
+            padding: 0 20px 20px 170px; 
+            border-top: 1px solid var(--border-line); 
+            color: var(--text-charcoal); font-size: 0.95rem; line-height: 1.6; 
+            background: rgba(255, 255, 255, 0.5); 
+            padding-top: 15px; 
+        }
+
+        /* Research Styles */
+        .research-category-title { 
+            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; 
+            text-transform: uppercase; letter-spacing: 2px; color: var(--accent-primary); 
+            border-bottom: 2px solid var(--accent-secondary); padding-bottom: 5px; margin-bottom: 20px; 
+        }
 
         /* Background Images */
         .bg-journey { background-image: url('images/journey.jpg'); }
@@ -255,6 +289,14 @@
             .contact-icons { justify-content: center; }
             .main-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero-name { font-size: 2rem; }
+
+            /* Timeline Responsive */
+            .timeline-container { padding-left: 0; }
+            .timeline-container::before { display: none; }
+            .timeline-series-item::after { display: none; }
+            .series-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .series-date { width: auto; font-size: 0.75rem; margin-bottom: 2px; }
+            .series-content { padding: 15px 20px; }
         }
     </style>
 </head>
