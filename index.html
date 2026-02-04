@@ -13,7 +13,7 @@
     <style>
         /* --- ELITE ACADEMIC PALETTE --- */
         :root {
-            --bg-paper: #ffffff;
+            --bg-paper: #f0f2f5; /* Slightly darker background to make glass pop */
             --bg-subtle: #f8f9fa;
             --text-ink: #0f172a;
             --text-charcoal: #334155;
@@ -24,11 +24,16 @@
             --accent-secondary: #8d7b68; /* Bronze */
             --border-line: #e2e8f0;
             
-            /* GLASS VARIABLES */
-            --glass-bg: rgba(255, 255, 255, 0.85); /* High opacity for readability */
-            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
-            --glass-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Deeper shadow for "pop" */
-            --blur-strength: 20px; /* Heavy blur to diffuse the banner image */
+            /* --- LIQUID GLASS VARIABLES (NEW) --- */
+            /* High transparency, high blur, glossy highlights */
+            --liquid-bg: rgba(255, 255, 255, 0.65);
+            --liquid-border: 1px solid rgba(255, 255, 255, 0.9);
+            /* Complex shadow for glossy depth */
+            --liquid-shadow: 
+                inset 0 2px 4px rgba(255, 255, 255, 0.9), /* Top highlight */
+                inset 0 -2px 4px rgba(0, 0, 0, 0.05),   /* Bottom subtle shade */
+                0 15px 35px rgba(0, 0, 0, 0.15);        /* Drop shadow */
+            --liquid-blur: blur(20px) saturate(160%); /* Blur + Saturation for "wet" look */
         }
 
         /* --- GLOBAL RESET --- */
@@ -43,9 +48,9 @@
             line-height: 1.6; 
             scroll-behavior: smooth;
             font-size: 16px; 
-            /* Subtle texture */
+            /* Subtle underlying pattern */
             background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 40px 40px;
+            background-size: 30px 30px;
         }
 
         h1, h2, h3, h4 {
@@ -59,15 +64,16 @@
         p a { border-bottom: 1px solid rgba(15, 23, 42, 0.2); }
         p a:hover { color: var(--accent-secondary); border-bottom-color: var(--accent-secondary); }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (LIQUID NAV) --- */
         .top-nav {
             position: sticky;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-line);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: var(--liquid-blur);
+            -webkit-backdrop-filter: var(--liquid-blur);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             padding: 12px 0;
             z-index: 1000;
             text-align: center;
@@ -84,93 +90,91 @@
         }
         .nav-links a:hover { color: var(--accent-secondary); }
 
-        /* --- CONTAINER --- */
+        /* --- MAIN CONTAINER --- */
         .container {
             max-width: 1250px; 
             margin: 0 auto;
-            padding: 40px 30px;
+            padding: 50px 30px;
         }
 
-        /* --- SECTION 1: PROFILE HERO (Banner + Glass) --- */
+        /* --- FULL WIDTH BANNER --- */
         .profile-banner-wrapper {
-            /* This creates the banner area */
             width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            margin-bottom: 50px;
-            /* Placeholder for South Asia / Gender Experiments theme */
-            /* Using a generic Unsplash ID for 'South Asia crowd/women' */
-            background-image: url('https://images.unsplash.com/photo-1566996695689-53531b40289f?q=80&w=2069&auto=format&fit=crop'); 
+            /* Placeholder Image: Political gathering/South Asia vibe */
+            background-image: url('https://images.unsplash.com/photo-1580412363770-bb3682e92e6e?q=80&w=2070&auto=format&fit=crop'); 
             background-size: cover;
-            background-position: center 30%; /* Focus on faces/crowd */
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            padding: 60px 40px; /* Padding creates space around the glass box */
+            background-position: center center;
+            position: relative;
+            padding: 80px 20px; /* Tall padding */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Dark overlay to ensure text readability if the image is bright */
+        /* Lighter overlay so banner is visible */
         .profile-banner-wrapper::before {
             content: '';
             position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.3); /* Navy tint */
+            background: rgba(15, 23, 42, 0.25); /* Navy tint, low opacity */
             z-index: 0;
         }
 
+        /* --- LIQUID GLASS PROFILE BOX --- */
         .glass-profile {
-            /* The Glass Box sits on top */
             position: relative; z-index: 1;
-            background: var(--glass-bg);
-            border: var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            backdrop-filter: blur(var(--blur-strength));
-            -webkit-backdrop-filter: blur(var(--blur-strength));
-            border-radius: 8px;
-            padding: 40px;
+            /* Liquid Glass Styles */
+            background: var(--liquid-bg);
+            border: var(--liquid-border);
+            box-shadow: var(--liquid-shadow);
+            backdrop-filter: var(--liquid-blur);
+            -webkit-backdrop-filter: var(--liquid-blur);
+            border-radius: 20px; /* Rounded corners for liquid look */
+            
+            padding: 50px;
             width: 100%;
-            max-width: 1100px; /* Constrain width slightly for aesthetics */
+            max-width: 1100px;
             display: flex; flex-direction: row; align-items: center;
             gap: 50px;
         }
 
+        /* SQUARE PICTURE */
         .profile-pic {
-            width: 260px; height: 320px; 
-            border-radius: 4px; object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.8); /* Thicker border to pop against banner */
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15); flex-shrink: 0;
+            width: 220px; height: 220px; /* Square */
+            border-radius: 15px; /* Slight rounding on picture corners */
+            object-fit: cover;
+            border: 3px solid rgba(255,255,255,0.9); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); flex-shrink: 0;
         }
 
         .profile-content { flex: 1; text-align: left; }
 
         .hero-name { font-size: 2.8rem; margin-bottom: 5px; line-height: 1.1; color: var(--accent-primary); }
         .hero-title {
-            font-family: 'Merriweather', serif; font-size: 1rem; color: var(--text-charcoal); /* Darker for glass contrast */
+            font-family: 'Merriweather', serif; font-size: 1rem; color: var(--text-charcoal);
             font-style: italic; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;
         }
 
         .contact-icons { display: flex; gap: 20px; margin-bottom: 25px; }
         .icon-link {
-            font-size: 1.2rem; color: var(--text-charcoal); padding: 10px;
-            border-radius: 50%; background: rgba(255,255,255,0.6); border: 1px solid var(--border-line);
-            transition: all 0.2s ease;
+            font-size: 1.3rem; color: var(--text-charcoal); padding: 12px;
+            border-radius: 50%; background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.8);
+            transition: all 0.2s ease; backdrop-filter: blur(5px);
         }
-        .icon-link:hover { color: var(--accent-secondary); border-color: var(--accent-secondary); transform: translateY(-2px); background: #fff; }
+        .icon-link:hover { color: var(--accent-secondary); border-color: var(--accent-secondary); transform: translateY(-3px) scale(1.05); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
         .insta-note {
             display: inline-flex; align-items: center; gap: 12px;
             padding: 12px 24px;
-            background: rgba(255,255,255,0.5); /* Semi-transparent */
-            border: 1px solid var(--border-line);
+            background: rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.8);
             border-radius: 50px;
             font-size: 0.9rem; color: var(--text-charcoal);
             transition: all 0.3s ease;
-            cursor: pointer;
+            cursor: pointer; backdrop-filter: blur(5px);
         }
-        .insta-note:hover { background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transform: translateY(-1px); border-color: var(--accent-secondary); }
+        .insta-note:hover { background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-2px); border-color: var(--accent-secondary); }
         .insta-note i { font-size: 1.4rem; color: #C13584; }
-        .insta-note a { border-bottom: 1px solid var(--accent-secondary); color: var(--accent-primary); }
+        .insta-note a { border-bottom: 2px solid var(--accent-secondary); color: var(--accent-primary); }
 
         /* --- SECTION 2: GRID (Journey + Mentors) --- */
         .main-grid {
@@ -185,20 +189,25 @@
         }
         .content-text p { font-size: 1.05rem; margin-bottom: 20px; text-align: justify; color: var(--text-charcoal); }
 
+        /* LIQUID GLASS MENTOR COL */
         .mentors-col {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(5px);
-            padding: 25px; border-radius: 4px; border: 1px solid var(--border-line);
+            background: var(--liquid-bg);
+            backdrop-filter: var(--liquid-blur);
+            -webkit-backdrop-filter: var(--liquid-blur);
+            border: var(--liquid-border);
+            box-shadow: var(--liquid-shadow);
+            padding: 25px; border-radius: 15px;
         }
         .mentors-title {
             font-family: 'Montserrat', sans-serif; font-size: 0.85rem; text-transform: uppercase;
             letter-spacing: 1.5px; color: var(--accent-secondary); margin-bottom: 15px; font-weight: 700; border-bottom: 1px solid var(--border-line); padding-bottom: 5px;
         }
-        .mentor-card { background: #fff; border: 1px solid var(--border-line); padding: 18px; margin-bottom: 15px; border-radius: 2px; }
+        .mentor-card { background: rgba(255,255,255,0.7); border: 1px solid var(--border-line); padding: 18px; margin-bottom: 15px; border-radius: 8px; transition: all 0.3s ease;}
+        .mentor-card:hover { background: #fff; border-color: var(--accent-secondary); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .mentor-link { font-size: 1rem; color: var(--accent-primary); margin-bottom: 5px; display: block; font-family: 'Playfair Display', serif; font-weight: 700; }
         .mentor-card p { font-size: 0.9rem; margin: 0; font-style: italic; color: var(--text-muted); }
 
-        /* --- TIMELINE AESTHETIC --- */
+        /* --- TIMELINE AESTHETIC (LIQUID GLASS CONSISTENCY) --- */
         .timeline-container { position: relative; padding-left: 30px; margin-top: 20px; }
         .timeline-container::before { 
             content: ''; position: absolute; left: 8px; top: 0; bottom: 0; 
@@ -211,19 +220,21 @@
             background: #fff; border: 3px solid var(--accent-secondary); z-index: 1; 
         }
 
+        /* THE SERIES CARD - APPLYING LIQUID GLASS STYLES */
         .series-card {
-            background: var(--glass-bg);
-            border: var(--glass-border);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Lighter shadow for cards */
-            backdrop-filter: blur(10px); /* Lighter blur for cards */
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 6px;
+            /* Using the shared liquid variables */
+            background: var(--liquid-bg);
+            border: var(--liquid-border);
+            box-shadow: var(--liquid-shadow);
+            backdrop-filter: var(--liquid-blur);
+            -webkit-backdrop-filter: var(--liquid-blur);
+            border-radius: 12px; /* Slightly smaller radius for cards */
             overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
-        .series-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); border-color: var(--accent-secondary); }
+        .series-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.15); border-color: var(--accent-secondary); }
 
-        summary { list-style: none; padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; }
+        summary { list-style: none; padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; background: transparent; }
         summary::-webkit-details-marker { display: none; }
 
         .series-header { display: flex; flex-direction: column; gap: 5px; width: 100%; }
@@ -235,7 +246,7 @@
         .arrow-icon { margin-top: 5px; color: var(--text-muted); font-size: 0.9rem; transition: transform 0.3s ease; }
         details[open] summary .arrow-icon { transform: rotate(180deg); color: var(--accent-secondary); }
 
-        .series-content { padding: 0 25px 25px 25px; color: var(--text-charcoal); font-size: 0.95rem; line-height: 1.7; border-top: 1px solid rgba(0,0,0,0.05); }
+        .series-content { padding: 0 25px 25px 25px; color: var(--text-charcoal); font-size: 0.95rem; line-height: 1.7; border-top: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2); }
 
         /* --- BOTTOM SECTIONS --- */
         .section-banner {
@@ -243,11 +254,11 @@
             background-attachment: fixed; background-position: center; background-size: cover;
             display: flex; align-items: center; justify-content: center; margin: 40px 0;
         }
-        .banner-overlay { background: rgba(15, 23, 42, 0.4); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+        .banner-overlay { background: rgba(15, 23, 42, 0.3); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
         .banner-title {
             color: #fff; font-size: 2rem; letter-spacing: 3px; text-transform: uppercase;
-            border: 1px solid rgba(255,255,255,0.7); padding: 10px 40px;
-            background: rgba(0,0,0,0.2); backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.8); padding: 12px 40px;
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
         }
         
         .bg-journey { background-image: url('images/journey.jpg'); }
@@ -265,9 +276,9 @@
 
         @media (max-width: 900px) {
             .container { padding: 30px 15px; }
-            .profile-banner-wrapper { padding: 30px 15px; background-attachment: scroll; }
+            .profile-banner-wrapper { padding: 40px 15px; background-attachment: scroll; }
             .glass-profile { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; }
-            .profile-pic { width: 100%; height: 350px; }
+            .profile-pic { width: 200px; height: 200px; }
             .profile-content { text-align: center; }
             .contact-icons { justify-content: center; }
             .main-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -289,32 +300,32 @@
         </ul>
     </nav>
 
-    <div class="container">
+    <section id="home" class="profile-banner-wrapper">
         
-        <section id="home" class="profile-banner-wrapper">
+        <div class="glass-profile">
+            <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
             
-            <div class="glass-profile">
-                <img src="images/profile.jpg" alt="Mamoor Ali Khan" class="profile-pic">
+            <div class="profile-content">
+                <h1 class="hero-name">Mamoor Ali Khan</h1>
+                <div class="hero-title">Research Operations Specialist</div>
                 
-                <div class="profile-content">
-                    <h1 class="hero-name">Mamoor Ali Khan</h1>
-                    <div class="hero-title">Research Operations Specialist</div>
-                    
-                    <div class="contact-icons">
-                        <a href="mailto:skhan24@nd.edu" class="icon-link" title="Email Me"><i class="fas fa-envelope"></i></a>
-                        <a href="https://linkedin.com/in/mamoor-ali-khan-5106a9171/?skipRedirect=true" target="_blank" class="icon-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="icon-link" title="Download CV"><i class="fas fa-file-alt"></i></a>
-                    </div>
+                <div class="contact-icons">
+                    <a href="mailto:skhan24@nd.edu" class="icon-link" title="Email Me"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/mamoor-ali-khan-5106a9171/?skipRedirect=true" target="_blank" class="icon-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="icon-link" title="Download CV"><i class="fas fa-file-alt"></i></a>
+                </div>
 
-                    <div class="insta-note" onclick="window.open('https://www.instagram.com/adventourist1/', '_blank')">
-                        <i class="fab fa-instagram"></i>
-                        <span>Beyond the data, I document my travels through photography.</span>
-                    </div>
+                <div class="insta-note" onclick="window.open('https://www.instagram.com/adventourist1/', '_blank')">
+                    <i class="fab fa-instagram"></i>
+                    <span>Beyond the data, I document my travels through photography.</span>
                 </div>
             </div>
+        </div>
 
-        </section>
+    </section>
 
+    <div class="container">
+        
         <div class="main-grid">
             
             <div class="content-text">
@@ -382,7 +393,7 @@
                             <i class="fas fa-chevron-down arrow-icon"></i>
                         </summary>
                         <div class="series-content">
-                            <p>In this capacity, I demonstrate strong global leadership by managing international research teams across Colombia, Italy, the United Kingdom, and the United States. My role centers on quantitative analysis and methodological rigor; I oversee the entire lifecycle of data collection and management for multiple ongoing projects, supervising coding workflows to ensure absolute consistency. Beyond the technical scope, I drive strategic operations by managing research budgets, reporting on project fund allocation, and guiding the analytical writing for high-level research reports and academic papers.</p>
+                            <p>In this capacity, I demonstrate strong global leadership by managing international research teams across Colombia, India, Nepal, Pakistan and the United States. My role centers on quantitative analysis and methodological rigor; I oversee the entire lifecycle of data collection and management for multiple ongoing projects, supervising coding workflows to ensure absolute consistency. Beyond the technical scope, I drive strategic operations by managing research budgets, reporting on project fund allocation, and guiding the analytical writing for high-level research reports and academic papers.</p>
                         </div>
                     </details>
                 </div>
