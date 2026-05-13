@@ -288,6 +288,21 @@ footer {
   font-family: 'DM Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
 }
 @media (max-width: 768px) { footer { flex-direction: column; text-align: center; gap: 12px; } }
+
+/* =============================================
+   TOOLS SECTION
+   ============================================= */
+.tools-inner { display: grid; grid-template-columns: 1fr 1fr; border-bottom: var(--rule-thin); }
+.tools-left { padding: 32px; border-right: var(--rule-thin); }
+.tools-right { padding: 32px; }
+.skill-row { border-bottom: var(--rule-light); padding-bottom: 16px; margin-bottom: 16px; }
+.skill-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.skill-name { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 6px; }
+.skill-desc { margin: 0; font-size: 0.9rem; }
+@media (max-width: 768px) {
+  .tools-inner { grid-template-columns: 1fr; }
+  .tools-left { border-right: none; border-bottom: var(--rule-thin); }
+}
 </style>
 </head>
 <body>
@@ -307,6 +322,7 @@ footer {
       <a href="#journey" class="nav-item">Journey</a>
       <a href="#experience" class="nav-item">Experience</a>
       <a href="#research" class="nav-item">Research</a>
+      <a href="#tools" class="nav-item">Open Source</a>
       <a href="#affiliations" class="nav-item">Affiliations</a>
     </nav>
   </header>
@@ -315,11 +331,11 @@ footer {
     
     <div class="column">
       <div class="section-label"><span>Profile</span> <span>01</span></div>
-      <p class="drop-cap">From the historic streets of Peshawar to Notre Dame. I am a Research Operations Specialist currently managing international research teams across Colombia, India, Nepal, Pakistan, and the United States.</p>
-      
+      <p class="drop-cap">Twelve years of empirical field research, from Peshawar to Notre Dame. A Research Operations Specialist with a record of directing multi-country studies spanning Argentina, Bangladesh, India, Kenya, Lebanon, Pakistan, and the United States.</p>
+
       <div class="pullquote">"A decade bridging quantitative rigour with the human complexities of development research."</div>
-      
-      <p>My specialty lies in panel data construction, OLS-based analysis, and directing end-to-end field operations.</p>
+
+      <p>Core expertise spans panel data construction, OLS-based analysis, and end-to-end field operations management. Alongside applied research work, I design and build open-source Claude Skills that systematize core research operations for academic teams, with a focus on reproducibility and methodological rigor.</p>
     </div>
 
     <div class="column">
@@ -332,6 +348,7 @@ footer {
         <a href="mailto:skhan24@nd.edu" class="action-btn dark"><i class="fas fa-envelope"></i> Contact</a>
         <a href="https://www.dropbox.com/scl/fi/l1b0zx35sj032045oajtc/cvmak.pdf?rlkey=9a55m6v82eoqxasv9vf0yxcin&dl=0" target="_blank" class="action-btn"><i class="fas fa-file-alt"></i> View CV</a>
         <a href="https://linkedin.com/in/mamoor-ali-khan-5106a9171/?skipRedirect=true" target="_blank" class="action-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/Mamooralikhan/super-RA" target="_blank" class="action-btn"><i class="fab fa-github"></i> GitHub</a>
       </div>
 
       <a href="https://www.instagram.com/adventourist1/" target="_blank" class="ig-block">
@@ -347,7 +364,7 @@ footer {
         <div class="stat-l mono">Years in Field</div>
       </div>
       <div class="stat-block">
-        <div class="stat-n headline-font">6</div>
+        <div class="stat-n headline-font">7</div>
         <div class="stat-l mono">Countries</div>
       </div>
       <div class="stat-block">
@@ -380,22 +397,22 @@ footer {
     <div class="section-label"><span>Feature: My Journey</span> <span>04</span></div>
     <div class="journey-grid">
       <div>
-        <p class="drop-cap">It began in 2013. Fresh out of Computer Science, I found myself not in a tech startup, but as an intern in a pharmaceutical firm. It was there, amidst the rows of numbers and spreadsheets, that I discovered my true language: <strong>Data</strong>.</p>
-        <p>I realized I had a specific talent; I could listen to what the data was saying and shape it to tell the truth of the business. This skill propelled me to Assistant Product Manager, where I crafted marketing strategies for OTC products. But I wanted more impact. I made a pivotal decision to pursue a Master's in Development Studies, a decision that finally married my technical programming roots with the human-centric world of development practice.</p>
-        <p>This path led me to impactful work with USAID and UNHCR projects, but the true turning point was the mentorship I received. I met <a href="https://lukesonnet.com/" target="_blank" style="text-decoration:underline;">Dr. Luke Sonnet</a>, under whose wing I delved into the realm of data analysis. Though I will always consider myself a student of the craft, I have built a proven track record. My specialty is shaping raw data into panel form and using OLS to solve problems. I like to think of myself as a "Data Wizard" :-)</p>
-        <p><strong>From Peshawar to Notre Dame.</strong> Today, I write this as a Research Manager at the <a href="https://kellogg.nd.edu/" target="_blank" style="text-decoration: underline;">Kellogg Institute, University of Notre Dame</a>. It is a reality that feels worlds apart from where I began. My journey from the historic streets of Peshawar to the United States was paved with grit, the generosity of mentors, and an unyielding conviction to believe in oneself, transcending the fear of embarrassment and failure.</p>
+        <p class="drop-cap">The career began in 2013. A background in Computer Science led not to a technology firm but to a role within a pharmaceutical company, where working across structured data and business functions made the professional direction clear: <strong>applied quantitative analysis</strong>.</p>
+        <p>That early analytical work advanced into a product management position, where data-driven methods informed marketing strategy for OTC pharmaceutical products. A deliberate decision to pursue a Master's in Development Studies followed, connecting a technical foundation in programming and statistical methods to the field of development research and policy.</p>
+        <p>Field engagements with USAID and UNHCR projects provided the operational grounding. Collaboration with <a href="https://lukesonnet.com/" target="_blank" style="text-decoration:underline;">Dr. Luke Sonnet</a> proved formative: his standards for analytical rigor shaped an approach to research operations built on precision, reproducibility, and disciplined data management. The technical work that followed established a track record in panel data construction and OLS-based analysis across complex, multi-country research environments.</p>
+        <p><strong>From Peshawar to Notre Dame.</strong> The current role is Research Manager at the <a href="https://kellogg.nd.edu/" target="_blank" style="text-decoration: underline;">Kellogg Institute, University of Notre Dame</a>. The distance traveled, professionally and geographically, reflects twelve years of rigorous training, consistent execution, and the sustained engagement of exceptional mentors.</p>
       </div>
       <div class="gratitude-box">
         <div class="mono" style="margin-bottom:16px; color:#aaa;">In Gratitude</div>
         
         <div class="gratitude-item">
           <a href="https://www.miriamgolden.com/" target="_blank"><h3>Dr. Miriam Golden</h3></a>
-          <p>She trusted a naive boy with her most precious projects. I still recall the sting of embarrassment in early meetings, acutely aware of my lack of international education. Yet, where others might have seen a liability, Dr. Golden never lost faith. She has been the unshakable pillar of my career and has fundamentally shaped my life. I offer her my deepest respect; I simply cannot thank her enough.</p>
+          <p>Dr. Golden extended trust and responsibility at a formative stage, assigning leadership roles on consequential international research projects. Her confidence in my capabilities, sustained across many years, has been foundational to this career. The standards she holds for rigor, precision, and intellectual honesty have shaped every dimension of this work.</p>
         </div>
         
         <div class="gratitude-item">
           <a href="https://saadgulzar.com/" target="_blank"><h3>Dr. Saad Gulzar</h3></a>
-          <p>Dr. Gulzar is the catalyst for my professional ascent. He opened doors I did not know existed, giving me multiple opportunities within his research and introducing me to brilliant minds at Stanford, Yale, and Princeton. He didn't just give me a role; he gave me a horizon.</p>
+          <p>Dr. Gulzar expanded the scope of this work in ways that proved decisive. He offered repeated opportunities across his research portfolio and facilitated introductions to scholars at Stanford, Yale, and Princeton. The methodological exposure and professional network that followed have been central to this career's trajectory.</p>
         </div>
       </div>
     </div>
@@ -415,7 +432,7 @@ footer {
           <div class="exp-icon"><i class="fas fa-plus"></i></div>
         </summary>
         <div class="exp-body">
-          In this capacity, I demonstrate strong global leadership by managing international research teams across Colombia, India, Nepal, Pakistan and the United States. My role centers on quantitative analysis and methodological rigor; I oversee the entire lifecycle of data collection and management for multiple ongoing projects, supervising coding workflows to ensure absolute consistency. Beyond the technical scope, I drive strategic operations by managing research budgets, reporting on project fund allocation, and guiding the analytical writing for high-level research reports and academic papers.
+          Leads research operations across distributed international teams in Colombia, India, Nepal, Pakistan, and the United States. Oversees the full lifecycle of data collection and management across multiple concurrent projects, with direct supervision of coding workflows to maintain methodological consistency. Responsibilities include research budget management, fund allocation reporting, and substantive contribution to the analytical writing underpinning academic publications and research reports.
         </div>
       </details>
 
@@ -429,7 +446,7 @@ footer {
           <div class="exp-icon"><i class="fas fa-plus"></i></div>
         </summary>
         <div class="exp-body">
-          Operating on the ground in Pakistan, specifically within Khyber Pakhtunkhwa (KP), I led advanced data analysis and stakeholder management for Princeton's research initiatives. I collaborated closely with principal investigators to produce complex project reports, piloting survey instruments locally to ensure they effectively captured the region's nuances. I exercised operational leadership by training local field staff on research protocols and monitoring teams to ensure strict adherence to procedures. Furthermore, I fostered critical government relations by developing new partnerships with the KP Local Government Department and Election Commission.
+          Based in Khyber Pakhtunkhwa, led data analysis and institutional stakeholder engagement for Princeton's research initiatives in Pakistan. Worked directly with principal investigators to produce project reports, piloting and refining survey instruments to ensure validity in a complex socio-political environment. Trained and supervised local field teams on research protocols. Established formal partnerships with the KP Local Government Department and the Election Commission of Pakistan.
         </div>
       </details>
 
@@ -443,7 +460,7 @@ footer {
           <div class="exp-icon"><i class="fas fa-plus"></i></div>
         </summary>
         <div class="exp-body">
-          While stationed in Pakistan, I managed a massive, multi-national research program spanning six countries: Argentina, Bangladesh, India, Kenya, Lebanon, and Pakistan. This role required strategic program management from my base in the region, where I hired country managers and supervised social experiments across all territories. I established a centralized coordination cell to streamline communication strategies and developed a robust research database to organize complex datasets. My work culminated in a comprehensive analysis of these experiments, where I designed the complete analysis strategy and presented findings in detailed reports.
+          Directed a large-scale, multi-national research program spanning seven countries: Argentina, Bangladesh, India, Kenya, Lebanon, Pakistan, and the United States. Recruited and managed country-level research managers, overseeing the concurrent execution of social experiments across all sites. Designed and implemented a centralized coordination structure to standardize communication and data flows across teams. Constructed the core research database and led the complete analysis strategy, delivering findings in detailed reports to the principal investigators.
         </div>
       </details>
 
@@ -457,7 +474,7 @@ footer {
           <div class="exp-icon"><i class="fas fa-plus"></i></div>
         </summary>
         <div class="exp-body">
-          From my base in Pakistan, I focused on political communication and data integrity, establishing a coordination strategy to effectively engage with provincial incumbents across four provinces. I built relationships within the assembly to enroll incumbents in the study and developed the local communication strategy. My technical skills were pivotal in gathering, correcting, and validating research data to create representative visualizations for high-stakes presentations. I also ensured regulatory compliance by independently managing documentation and filings, helping the team navigate complex local regulatory requirements.
+          Based in Pakistan, led political communication and data operations for a multi-province legislative study, engaging directly with incumbent members of provincial assemblies across four provinces. Managed participant enrollment, developed the local outreach strategy, and ensured data integrity through systematic collection, verification, and validation. Produced research visualizations for senior-level presentations and independently managed all regulatory filings and compliance documentation.
         </div>
       </details>
 
@@ -471,7 +488,7 @@ footer {
           <div class="exp-icon"><i class="fas fa-plus"></i></div>
         </summary>
         <div class="exp-body">
-          As a Program Consultant for the U.S.-Pakistan Center on Advanced Studies in Energy, I conducted thorough reviews of internal systems and operations to devise and deploy strategic improvement plans. I developed targeted training plans to address areas of need and produced detailed, relevant reports to support critical business decisions. My contributions to the field were recognized at the National and International Conferences on Sustainable Green Technologies in 2016 and 2017.
+          Served as Program Consultant for the U.S.-Pakistan Center on Advanced Studies in Energy (USPCASE), a USAID-funded academic initiative. Conducted systematic operational reviews, developed targeted training programs, and produced analytical reports to support institutional decision-making. Presented research at the National and International Conferences on Sustainable Green Technologies in 2016 and 2017.
         </div>
       </details>
 
@@ -485,7 +502,7 @@ footer {
           <div class="exp-icon"><i class="fas fa-plus"></i></div>
         </summary>
         <div class="exp-body">
-          Leveraging market analytics, I led category, brand, and competitive analyses to identify key consumer trends and drive strategic conclusions. I managed cross-functional teams to commercialize new products, working within a product pod environment alongside product developers, design teams, and software personnel. My role also involved rigorous vendor management, collaborating with vendors to verify service-level performance and influencing supplier manufacturing processes and technology decision-making to optimize customer service policies.
+          Conducted category, brand, and competitive analyses to identify consumer trends and inform product strategy. Led cross-functional teams through new product commercialization, coordinating across product development, design, and software units. Managed vendor relationships, evaluated service-level performance, and contributed to supplier manufacturing and technology decisions to improve operational outcomes.
         </div>
       </details>
 
@@ -496,13 +513,13 @@ footer {
     <div class="section-label"><span>Index: Research Operations</span> <span>06</span></div>
     
     <div class="research-note">
-      <p style="margin:0;"><strong>Note on this portfolio:</strong> This portfolio spans nearly a decade of technical execution and operational leadership. While I do not claim authorship, I served as the technical backbone for these studies, driving rigorous data cleaning, coding in R, and statistical analysis alongside the management of complex field operations and stakeholder relationships.</p>
+      <p style="margin:0;"><strong>Note on this portfolio:</strong> This portfolio documents nearly a decade of technical execution and operational leadership. Principal investigators hold authorship on the studies listed. The contribution in each case was as lead technical executor: rigorous data cleaning, statistical analysis in R, and the coordination of complex field operations and institutional relationships.</p>
     </div>
 
     <div class="portfolio-cat">
       <div class="cat-header">
         <div class="cat-role">Role: Policy Design &amp; Visualization</div>
-        <div class="cat-desc">Translating complex policy needs into actionable visual strategies. Responsible for conceptualizing and creating high-level "guiding light" frameworks for government application.</div>
+        <div class="cat-desc">Translated complex policy frameworks into government-ready visual strategies. Responsible for conceptualizing and producing official illustrations adopted by public institutions.</div>
       </div>
       <div class="paper-row">
         <div class="paper-num">01</div>
@@ -551,7 +568,7 @@ footer {
     <div class="portfolio-cat">
       <div class="cat-header">
         <div class="cat-role">Role: Country Project Manager (Pakistan)</div>
-        <div class="cat-desc">Managed the Pakistan arm of multi-country projects. Specifically responsible for executing complex legislator data collection, ensuring data integrity, and high-level stakeholder management.</div>
+        <div class="cat-desc">Managed the Pakistan component of multi-country comparative projects. Responsible for legislator data collection, data integrity, and sustained engagement with senior government and institutional stakeholders.</div>
       </div>
       <div class="paper-row">
         <div class="paper-num">01</div>
@@ -572,7 +589,7 @@ footer {
     <div class="portfolio-cat">
       <div class="cat-header">
         <div class="cat-role">Role: Research Support &amp; Data Analysis</div>
-        <div class="cat-desc">Provided key technical execution including advanced R coding, large-scale data cleaning, web scraping, and database management. Coordinated high-level field activities, including MP workshops and governance conferences.</div>
+        <div class="cat-desc">Led technical execution including advanced R programming, large-scale data cleaning, web scraping, and database management. Coordinated field activities including parliamentary workshops and international governance conferences.</div>
       </div>
       <div class="paper-row">
         <div class="paper-num">01</div>
@@ -619,36 +636,77 @@ footer {
     </div>
   </section>
 
+  <section id="tools">
+    <div class="section-label"><span>Open Source: Research Tools</span> <span>07</span></div>
+
+    <div class="research-note">
+      <p style="margin:0;">I am developing and inventing Claude Skills for researchers in academia. A Claude Skill is a markdown file that instructs Claude Code to carry out a bounded, well-defined research task, each executed in structured phases with user approval checkpoints. The work is open source and available on GitHub.</p>
+    </div>
+
+    <div style="border: var(--rule-thin); margin-bottom: 60px;">
+      <div class="tools-inner">
+        <div class="tools-left">
+          <div class="mono" style="font-size:0.65rem; color:var(--ink-faint); margin-bottom:12px;">Project</div>
+          <h3 class="headline-font" style="font-size: 3rem; line-height: 1; margin-bottom: 8px;">super-RA</h3>
+          <p style="margin-bottom: 16px; font-size: 0.95rem;">A growing library of Claude Skills for empirical social science research. Each skill enforces data integrity, transparent variable tracking, and end-to-end reproducibility. Designed for researchers working with foundations, multilateral institutions, and policy organizations.</p>
+          <a href="https://github.com/Mamooralikhan/super-RA" target="_blank" class="action-btn dark" style="display:inline-block; width:auto; padding: 10px 24px;"><i class="fab fa-github"></i> &nbsp;github.com/Mamooralikhan/super-RA</a>
+        </div>
+        <div class="tools-right">
+          <div class="mono" style="font-size:0.65rem; color:var(--ink-faint); margin-bottom:16px;">Skills</div>
+          <div class="skill-row">
+            <div class="skill-name">/replication-repo &nbsp;<span style="color: var(--ink-faint);">— Available</span></div>
+            <p class="skill-desc">Constructs a complete, self-contained replication package from an existing research project. Produces standardized file paths, cleaned datasets, and comprehensive documentation aligned with journal and funder requirements.</p>
+          </div>
+          <div class="skill-row" style="opacity: 0.6;">
+            <div class="skill-name">/coding-agent &nbsp;<span style="color: var(--ink-faint);">— In Development</span></div>
+            <p class="skill-desc">Standardizes analysis code for reproducibility across R and Stata workflows.</p>
+          </div>
+          <div class="skill-row" style="opacity: 0.6;">
+            <div class="skill-name">/lit-review &nbsp;<span style="color: var(--ink-faint);">— In Development</span></div>
+            <p class="skill-desc">Synthesizes targeted literature reviews structured around specific research questions.</p>
+          </div>
+          <div class="skill-row" style="opacity: 0.6;">
+            <div class="skill-name">/peer-review &nbsp;<span style="color: var(--ink-faint);">— In Development</span></div>
+            <p class="skill-desc">Generates structured academic referee reports following journal standards.</p>
+          </div>
+        </div>
+      </div>
+      <div style="padding: 16px 32px; background: var(--ink); color: var(--paper);">
+        <span class="mono" style="font-size: 0.6rem; letter-spacing: 0.15em; color: #aaa;">MIT License &nbsp;•&nbsp; Open Source &nbsp;•&nbsp; Built for Empirical Social Science</span>
+      </div>
+    </div>
+  </section>
+
   <section id="affiliations">
-    <div class="section-label"><span>Directory: Affiliations</span> <span>07</span></div>
+    <div class="section-label"><span>Directory: Affiliations</span> <span>08</span></div>
     
     <div class="aff-grid">
       <div class="aff-card">
         <div class="mono" style="font-size:0.65rem; color:var(--ink-faint); margin-bottom:8px;">Since 2025</div>
         <h3 class="headline-font">Mentor</h3>
         <a href="https://csod10.lums.edu.pk/" target="_blank" class="exp-org" style="display:block; margin-bottom:12px;">Career Services Office (CSO), LUMS</a>
-        <p style="margin:0;">Providing professional mentorship and career guidance to students at the Lahore University of Management Sciences to help navigate the development and research sectors.</p>
+        <p style="margin:0;">Advises students at the Lahore University of Management Sciences on careers in development research, field operations, and policy institutions. Draws on direct experience across academic, multilateral, and government-affiliated research environments.</p>
       </div>
       
       <div class="aff-card">
         <div class="mono" style="font-size:0.65rem; color:var(--ink-faint); margin-bottom:8px;">Since 2024</div>
         <h3 class="headline-font">Data and Research Analyst</h3>
         <a href="https://www.cdpr.org.pk/" target="_blank" class="exp-org" style="display:block; margin-bottom:12px;">Consortium for Development Policy Research (CDPR)</a>
-        <p style="margin:0;">Focused on high-level policy research and data analysis, contributing to evidence-based policy making in Pakistan.</p>
+        <p style="margin:0;">Conducts policy research and quantitative data analysis in support of evidence-based policy work in Pakistan, with a focus on governance, public finance, and development outcomes.</p>
       </div>
 
       <div class="aff-card">
         <div class="mono" style="font-size:0.65rem; color:var(--ink-faint); margin-bottom:8px;">Oct 2019 to Dec 2022</div>
         <h3 class="headline-font">Senior Research Associate</h3>
         <a href="https://www.cerp.org.pk/" target="_blank" class="exp-org" style="display:block; margin-bottom:12px;">Center for Economic Research in Pakistan (CERP)</a>
-        <p style="margin:0;">Managed large-scale research projects, coordinated field teams, and ensured data quality for economic research initiatives.</p>
+        <p style="margin:0;">Managed large-scale research projects across multiple simultaneous engagements, coordinated field teams, and maintained data quality standards for economic and policy research initiatives in Pakistan.</p>
       </div>
 
       <div class="aff-card">
         <div class="mono" style="font-size:0.65rem; color:var(--ink-faint); margin-bottom:8px;">Sept 2018 to Aug 2019</div>
-        <h3 class="headline-font">Research Supplier (Research Assistant)</h3>
+        <h3 class="headline-font">Research Associate</h3>
         <span class="exp-org" style="display:block; margin-bottom:12px;">Stanford University</span>
-        <p style="margin:0;">Provided research assistance and data support for projects led by Dr. Saad Gulzar, contributing to political economy research.</p>
+        <p style="margin:0;">Provided research and data support for projects led by Dr. Saad Gulzar, contributing to political economy research in Pakistan with a focus on legislative behavior and public service delivery.</p>
       </div>
     </div>
   </section>
