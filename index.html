@@ -327,6 +327,41 @@ footer {
   background: #ccc;
   border-color: #ccc;
 }
+
+/* =============================================
+   MOBILE — 600px and below
+   ============================================= */
+@media (max-width: 600px) {
+  p { text-align: left; }
+  .dateline span:nth-child(2) { display: none; }
+  .subhead { font-size: 0.9rem; line-height: 1.5; }
+  .nav-item { padding: 11px 10px; letter-spacing: 0.08em; }
+  .pullquote { font-size: 1rem; padding: 18px 0; }
+  .drop-cap::first-letter { font-size: 3.6rem; }
+  .stat-n { font-size: 3rem; }
+  .research-note { padding: 12px 16px; }
+  .gratitude-box { padding: 24px; }
+  .exp-role { font-size: 1.8rem; }
+  .aff-card { padding: 20px; }
+  #tools { padding: 32px 20px 48px; }
+  .tools-left { padding: 20px; }
+  .tools-right { padding: 20px; }
+  #tools .action-btn { display: block !important; width: 100% !important; box-sizing: border-box !important; text-align: center; }
+  .skill-name { font-size: 0.65rem; word-break: break-word; }
+}
+
+/* =============================================
+   MOBILE — 380px and below
+   ============================================= */
+@media (max-width: 380px) {
+  .nav-item { padding: 10px 6px; font-size: 0.6rem; letter-spacing: 0.05em; }
+  .exp-role { font-size: 1.6rem; }
+  #tools { padding: 24px 16px 40px; }
+  .tools-left { padding: 16px; }
+  .tools-right { padding: 16px; }
+  .gratitude-box { padding: 20px; }
+  .aff-card { padding: 16px; }
+}
 </style>
 </head>
 <body>
